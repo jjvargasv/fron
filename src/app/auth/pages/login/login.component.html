@@ -1,4 +1,9 @@
-<form class="form form-auth form-login">
+<form
+  class="form form-auth form-login"
+  [formGroup]="loginForm"
+  (ngSubmit)="login()"
+  autocomplete="off"
+>
   <h2>Login</h2>
   <div class="field">
     <label for="email">Email</label>
@@ -6,7 +11,7 @@
       id="email"
       class="input-field"
       type="email"
-      name="email"
+      formControlName="email"
       placeholder="Ingrese su Email"
     />
   </div>
@@ -16,12 +21,15 @@
       id="password"
       class="input-field"
       type="password"
-      name="password"
+      formControlName="password"
       placeholder="Ingrese su Password"
     />
   </div>
   <div class="field">
-    <button type="submit">Ingresar</button>
+    <button
+      type="submit"
+      [disabled]="this.loginForm.invalid"
+    >Ingresar</button>
   </div>
   <div class="field">
     <p>¿No tienes cuenta?</p>
