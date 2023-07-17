@@ -2,9 +2,7 @@
 <p>Solo se puede acceder si se está autenticado.</p>
 
 <h3>User info</h3>
-<pre>
-  data
-</pre>
+<pre>{{ user | json }}</pre>
 
 <button
   (click)="logout()"

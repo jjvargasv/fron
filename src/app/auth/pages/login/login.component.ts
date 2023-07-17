@@ -43,12 +43,17 @@ export class LoginComponent {
     const { email, password } = this.loginForm.value;
 
     this.authService.login( email, password )
-      .subscribe( response => {
-        console.log( response );
-      });
+      .subscribe( ok => {
+        // console.log( response );
 
-    // this.router.navigate([ 'dashboard' ]);
-    // this.router.navigateByUrl( '/dashboard' );
+        if( ok ) {
+          // this.router.navigate([ 'dashboard' ]);
+          this.router.navigateByUrl( '/dashboard' );
+        }
+        else {
+          // TODO: Mostrar mensaje de error
+        }
+      });
   }
 
 }
