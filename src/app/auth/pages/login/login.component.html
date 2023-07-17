@@ -1,1 +1,30 @@
-<p>login works!</p>
+<form class="form form-auth form-login">
+  <h2>Login</h2>
+  <div class="field">
+    <label for="email">Email</label>
+    <input
+      id="email"
+      class="input-field"
+      type="email"
+      name="email"
+      placeholder="Ingrese su Email"
+    />
+  </div>
+  <div class="field">
+    <label for="password">Password</label>
+    <input
+      id="password"
+      class="input-field"
+      type="password"
+      name="password"
+      placeholder="Ingrese su Password"
+    />
+  </div>
+  <div class="field">
+    <button type="submit">Ingresar</button>
+  </div>
+  <div class="field">
+    <p>¿No tienes cuenta?</p>
+    <p>Crea una <a routerLink="/auth/register">aquí</a></p>
+  </div>
+</form>
