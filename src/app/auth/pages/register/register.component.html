@@ -1,4 +1,9 @@
-<form class="form form-auth form-login">
+<form
+  class="form form-auth form-login"
+  [formGroup]="registerForm"
+  (ngSubmit)="register()"
+  autocomplete="off"
+>
   <h2>Registro</h2>
   <div class="field">
     <label for="nombre">Nombre</label>
@@ -6,7 +11,7 @@
       id="nombre"
       class="input-field"
       type="text"
-      name="nombre"
+      formControlName="name"
       placeholder="Ingrese su Nombre"
     />
   </div>
@@ -16,7 +21,7 @@
       id="email"
       class="input-field"
       type="email"
-      name="email"
+      formControlName="email"
       placeholder="Ingrese su Email"
     />
   </div>
@@ -26,12 +31,15 @@
       id="password"
       class="input-field"
       type="password"
-      name="password"
+      formControlName="password"
       placeholder="Ingrese su Password"
     />
   </div>
   <div class="field">
-    <button type="submit">Registrarse</button>
+    <button
+      type="submit"
+      [disabled]="this.registerForm.invalid"
+    >Registrarse</button>
   </div>
   <div class="field">
     <p>¿Ya tienes cuenta?</p>
