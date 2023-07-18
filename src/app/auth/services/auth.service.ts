@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { catchError, map, tap } from 'rxjs/operators';
 import { of } from 'rxjs';
@@ -40,6 +40,9 @@ export class AuthService {
 
           // Valida si la propiedad ok es verdadera
           if( response.ok ) {
+            // Establecemos el token en el localStorage
+            localStorage.setItem('token', response.token! );
+
             // Extrae los valores del usuario que vamos a ocupar
             this._user = {
               _id: response.user?._id!,
@@ -51,6 +54,15 @@ export class AuthService {
         catchError( err => of( err.error.msg ) )          // of: Convierte los argumentos en una secuencia observable.
       );
 
+  }
+
+  validateToken() {
+    const
+      token = localStorage.getItem( 'token' ) || '',
+      URL = `${ this.baseUrl }/auth/renew`,
+      headers = new HttpHeaders().set( 'x-token', token );
+
+    return this.http.get( URL, { headers });
   }
 
 }

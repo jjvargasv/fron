@@ -38,28 +38,31 @@ export class LoginComponent {
   ) {}
 
   login() {
-    console.group( 'loginForm' );
-    console.log( this.loginForm.value );
-    console.log( this.loginForm.valid );
-    console.groupEnd();
+    // console.group( 'loginForm' );
+    // console.log( this.loginForm.value );
+    // console.log( this.loginForm.valid );
+    // console.groupEnd();
 
-    const { email, password } = this.loginForm.value;
+    this.authService.validateToken().subscribe( console.log );   // Solo para probar
 
-    this.authService.login( email, password )
-      .subscribe( ok => {
-        if( ok === true ) {
-          // this.router.navigate([ 'dashboard' ]);
-          this.router.navigateByUrl( '/dashboard' );
-        }
-        else {
-          // ok: Es un string que trae el mensaje de error del BackEnd
-          Swal.fire(
-            'Error',
-            ok,
-            'error'
-          );
-        }
-      });
+    // const { email, password } = this.loginForm.value;
+
+    // this.authService.login( email, password )
+    //   .subscribe( value => {
+    //     /** Si el login es valido. Es un valor booleano true */
+    //     if( value === true ) {
+    //       // this.router.navigate([ 'dashboard' ]);
+    //       this.router.navigateByUrl( '/dashboard' );
+    //     }
+    //     else {
+    //       // Si el login no es valido. Es un string que trae el mensaje de error del BackEnd
+    //       Swal.fire(
+    //         'Error',
+    //         value,
+    //         'error'
+    //       );
+    //     }
+    //   });
   }
 
 }
