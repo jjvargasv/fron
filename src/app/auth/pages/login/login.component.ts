@@ -1,7 +1,10 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+
 import { AuthService } from '../../services/auth.service';
+
+import Swal from 'sweetalert2'
 
 @Component({
   selector: 'app-login',
@@ -44,14 +47,17 @@ export class LoginComponent {
 
     this.authService.login( email, password )
       .subscribe( ok => {
-        // console.log( response );
-
-        if( ok ) {
+        if( ok === true ) {
           // this.router.navigate([ 'dashboard' ]);
           this.router.navigateByUrl( '/dashboard' );
         }
         else {
-          // TODO: Mostrar mensaje de error
+          // ok: Es un string que trae el mensaje de error del BackEnd
+          Swal.fire(
+            'Error',
+            ok,
+            'error'
+          );
         }
       });
   }

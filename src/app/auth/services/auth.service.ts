@@ -48,7 +48,7 @@ export class AuthService {
           }
         }),
         map( response => response.ok ),                   // map: Mutamos la respuesta de todos las propiedades que puedan recibirse solo expondremos la propiedad 'ok'
-        catchError( err => of( false ) )                  // of: Convierte los argumentos en una secuencia observable.
+        catchError( err => of( err.error.msg ) )          // of: Convierte los argumentos en una secuencia observable.
       );
 
   }
