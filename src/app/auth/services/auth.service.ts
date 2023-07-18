@@ -35,7 +35,7 @@ export class AuthService {
     // Retornamos un Observable booleano
     return this.http.post<AuthResponse>( URL, body )      // Retorna un Observable de tipo AuthResponse
       .pipe(
-        tap( response => {
+        tap( response => {                                // tap: Se utiliza para realizar efectos secundarios para las notificaciones de la fuente observable
           console.log( response );
 
           // Valida si la propiedad ok es verdadera
@@ -47,8 +47,8 @@ export class AuthService {
             };
           }
         }),
-        map( response => response.ok ),                   // Mutamos la respuesta: de todos las propiedades que puedan recibirse solo expondremos la propiedad 'ok'
-        catchError( err => of( false ) )                  // of: Crea un Observable con un valor boleano dentro
+        map( response => response.ok ),                   // map: Mutamos la respuesta de todos las propiedades que puedan recibirse solo expondremos la propiedad 'ok'
+        catchError( err => of( false ) )                  // of: Convierte los argumentos en una secuencia observable.
       );
 
   }
