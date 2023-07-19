@@ -78,7 +78,7 @@ export class AuthService {
             // Establecemos el token en el localStorage
             localStorage.setItem( 'token', response.token! );
 
-            // Extrae los valores del usuario que vamos a ocupar
+            // TODO: NO Extrae los valores del usuario que vamos a ocupar, ni los hace persistentes mientras que el usuario esta logueado
             if (response.user) {
               this._user = {
                 _id: response.user._id,

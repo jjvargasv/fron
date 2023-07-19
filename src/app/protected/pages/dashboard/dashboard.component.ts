@@ -16,6 +16,7 @@ export class DashboardComponent {
 
   /** Getters */
   get user() {
+    // TODO: NO Extrae los valores del usuario que vamos a ocupar, ni los hace persistentes mientras que el usuario esta logueado
     return this.authService.user;
   }
 
