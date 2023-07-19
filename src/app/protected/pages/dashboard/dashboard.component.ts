@@ -20,7 +20,7 @@ export class DashboardComponent {
   }
 
   logout() {
-    // this.router.navigate([ 'auth', 'login' ]);
+    this.authService.logout();
     this.router.navigateByUrl( '/auth/login' );
   }
 }

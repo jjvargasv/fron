@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
+import { validateTokenGuard } from '../auth/guards/validate-token.guard';
 
 const routes: Routes = [
   {
@@ -14,7 +15,8 @@ const routes: Routes = [
         path: '**',
         redirectTo: ''
       }
-    ]
+    ],
+    canActivate: [ validateTokenGuard ],
   }
 ];
 
