@@ -106,5 +106,44 @@ export class AuthService {
     };
   }
 
+  register( name: string, email: string, password: string ) {
+    const
+      URL = `${ this.baseUrl }/auth/register`,
+      body = {
+        name, email, password
+      };
+
+    // Retornamos un Observable booleano
+    return this.http.post<AuthResponse>( URL, body )      // Retorna un Observable de tipo AuthResponse
+      .pipe(
+        tap( response => {                                // tap: Se utiliza para realizar efectos secundarios para las notificaciones de la fuente observable
+          console.log( response.user );
+
+          // Valida si la propiedad ok es verdadera
+          if( response.ok ) {
+            // Establecemos el token en el localStorage
+            localStorage.setItem( 'token', response.token! );
+
+            // Extrae los valores del usuario que vamos a ocupar
+            this._user = {
+              _id: response.user?._id!,
+              name: response.user?.name!
+            };
+
+          }
+        }),
+        map( response => response.ok ),                   // map: Mutamos la respuesta de todos las propiedades que puedan recibirse solo expondremos la propiedad 'ok'
+        catchError( err => {
+          console.error( err );
+
+          return of({                           // of: Convierte los argumentos en una secuencia observable.
+            ok: false,
+            msg: err.error.msg
+          }
+        )})
+      );
+
+  }
+
 
 }

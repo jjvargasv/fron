@@ -2,6 +2,10 @@ import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 
+import { AuthService } from '../../services/auth.service';
+
+import Swal from 'sweetalert2';
+
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
@@ -35,17 +39,38 @@ export class RegisterComponent {
 
   constructor(
     private fb: FormBuilder,
-    private router: Router
+    private router: Router,
+    private authService: AuthService
   ) {}
 
   register() {
-    console.group( 'registerForm' );
-    console.log( this.registerForm.value );
-    console.log( this.registerForm.valid );
-    console.groupEnd();
+    // console.group( 'registerForm' );
+    // console.log( this.registerForm.value );
+    // console.log( this.registerForm.valid );
+    // console.groupEnd();
 
-    // this.router.navigate([ 'dashboard' ]);
-    this.router.navigateByUrl( '/dashboard' );
+    const { name, email, password } = this.registerForm.value;
+
+    this.authService.register( name, email, password )
+      .subscribe( ( value ) => {
+
+        /** Si el registro es valido. Es un valor booleano true */
+        if( value === true ) {
+          // this.router.navigate([ 'dashboard' ]);
+          this.router.navigateByUrl( '/dashboard' );
+        }
+        else {
+          console.log( value );
+          const { msg } = value as { ok: boolean, msg: string };
+
+          // Si el login no es valido. Es un string que trae el mensaje de error del BackEnd
+          Swal.fire(
+            'Error',
+            msg,
+            'error'
+          );
+        }
+      });
   }
 
 }
