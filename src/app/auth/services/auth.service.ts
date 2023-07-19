@@ -45,10 +45,11 @@ export class AuthService {
             // Establecemos el token en el localStorage
             localStorage.setItem( 'token', response.token! );
 
-            // Extrae los valores del usuario que vamos a ocupar
+            // Extraer los valores del usuario NO es responsabilidad del login de usuarios (Solo de validateToken())
             this._user = {
               _id: response.user?._id!,
-              name: response.user?.name!
+              name: response.user?.name!,
+              email: response.user?.email!
             };
 
           }
@@ -70,19 +71,20 @@ export class AuthService {
 
     return this.http.get<AuthResponse>( URL, { headers })
       .pipe(
-        tap( response => {                                // tap: Se utiliza para realizar efectos secundarios para las notificaciones de la fuente observable
-          console.log( response.user );
+        tap( ({ ok, token, user }) => {                                // tap: Se utiliza para realizar efectos secundarios para las notificaciones de la fuente observable
+          console.log({ ok, token, user });   // console.log( response.user );
 
           // Valida si la propiedad ok es verdadera
-          if( response.ok ) {
+          if( ok ) {
             // Establecemos el token en el localStorage
-            localStorage.setItem( 'token', response.token! );
+            localStorage.setItem( 'token', token! );
 
             // TODO: NO Extrae los valores del usuario que vamos a ocupar, ni los hace persistentes mientras que el usuario esta logueado
-            if (response.user) {
+            if (user) {
               this._user = {
-                _id: response.user._id,
-                name: response.user.name
+                _id: user?._id!,
+                name: user?.name!,
+                email: user?.email!
               };
             }
 
@@ -102,7 +104,8 @@ export class AuthService {
     // Elimina los valores del usuario
     this._user = {
       _id: '',
-      name: ''
+      name: '',
+      email: ''
     };
   }
 
@@ -124,12 +127,16 @@ export class AuthService {
             // Establecemos el token en el localStorage
             localStorage.setItem( 'token', response.token! );
 
-            // Extrae los valores del usuario que vamos a ocupar
+            // Extraer los valores del usuario NO es responsabilidad del registro de usuarios (Solo de validateToken())
             this._user = {
               _id: response.user?._id!,
-              name: response.user?.name!
+              name: response.user?.name!,
+              email: response.user?.email!
             };
 
+          }
+          else {
+            localStorage.clear();
           }
         }),
         map( response => response.ok ),                   // map: Mutamos la respuesta de todos las propiedades que puedan recibirse solo expondremos la propiedad 'ok'
