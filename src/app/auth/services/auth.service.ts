@@ -80,11 +80,11 @@ export class AuthService {
             localStorage.setItem( 'token', token! );
 
             // TODO: NO Extrae los valores del usuario que vamos a ocupar, ni los hace persistentes mientras que el usuario esta logueado
-
             this._user = {
               _id: response?.id!,
               name: response?.name!,
-              email: response?.email!
+              email: response?.email!,
+              role: response?.role!
             };
 
 
@@ -105,7 +105,8 @@ export class AuthService {
     this._user = {
       _id: '',
       name: '',
-      email: ''
+      email: '',
+      role: ''
     };
   }
 
