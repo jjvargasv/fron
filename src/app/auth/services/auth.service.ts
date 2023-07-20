@@ -38,7 +38,7 @@ export class AuthService {
     return this.http.post<AuthResponse>( URL, body )      // Retorna un Observable de tipo AuthResponse
       .pipe(
         tap( response => {                                // tap: Se utiliza para realizar efectos secundarios para las notificaciones de la fuente observable
-          console.log( response.user );
+          console.log( response );
 
           // Valida si la propiedad ok es verdadera
           if( response.ok ) {
@@ -46,11 +46,11 @@ export class AuthService {
             localStorage.setItem( 'token', response.token! );
 
             // Extraer los valores del usuario NO es responsabilidad del login de usuarios (Solo de validateToken())
-            this._user = {
-              _id: response.user?._id!,
-              name: response.user?.name!,
-              email: response.user?.email!
-            };
+            // this._user = {
+            //   _id: response.user?._id!,
+            //   name: response.user?.name!,
+            //   email: response.user?.email!
+            // };
 
           }
         }),
@@ -71,22 +71,22 @@ export class AuthService {
 
     return this.http.get<AuthResponse>( URL, { headers })
       .pipe(
-        tap( ({ ok, token, user }) => {                                // tap: Se utiliza para realizar efectos secundarios para las notificaciones de la fuente observable
-          console.log({ ok, token, user });   // console.log( response.user );
+        tap( response => {                                // tap: Se utiliza para realizar efectos secundarios para las notificaciones de la fuente observable
+          console.log( response );   // console.log( response.user );
 
           // Valida si la propiedad ok es verdadera
-          if( ok ) {
+          if( response.ok ) {
             // Establecemos el token en el localStorage
             localStorage.setItem( 'token', token! );
 
             // TODO: NO Extrae los valores del usuario que vamos a ocupar, ni los hace persistentes mientras que el usuario esta logueado
-            if (user) {
-              this._user = {
-                _id: user?._id!,
-                name: user?.name!,
-                email: user?.email!
-              };
-            }
+
+            this._user = {
+              _id: response?.id!,
+              name: response?.name!,
+              email: response?.email!
+            };
+
 
           }
         }),
@@ -120,7 +120,7 @@ export class AuthService {
     return this.http.post<AuthResponse>( URL, body )      // Retorna un Observable de tipo AuthResponse
       .pipe(
         tap( response => {                                // tap: Se utiliza para realizar efectos secundarios para las notificaciones de la fuente observable
-          console.log( response.user );
+          console.log( response );
 
           // Valida si la propiedad ok es verdadera
           if( response.ok ) {
@@ -128,11 +128,11 @@ export class AuthService {
             localStorage.setItem( 'token', response.token! );
 
             // Extraer los valores del usuario NO es responsabilidad del registro de usuarios (Solo de validateToken())
-            this._user = {
-              _id: response.user?._id!,
-              name: response.user?.name!,
-              email: response.user?.email!
-            };
+            // this._user = {
+            //   _id: response?.id!,
+            //   name: response?.name!,
+            //   email: response?.email!
+            // };
 
           }
           else {

@@ -6,5 +6,7 @@ export interface AuthResponse {
   path?: string;
   msg?: string;
   token?: string;
-  user: User | undefined;
+  id?: string;
+  name?: string;
+  email?: string;
 }
