@@ -1,13 +1,15 @@
 <form
-  class="form form-auth form-login"
+  class="form form-product"
+  [formGroup]="productForm"
+  (ngSubmit)="createProduct()"
   autocomplete="off"
 >
   <h2>Productos</h2>
   <p>Registra nuevos productos. Diligencia cada uno de los campos según sean requeridos.</p>
   <div class="field">
-    <label for="nombre">Nombre</label>
+    <label for="name">Nombre*</label>
     <input
-      id="nombre"
+      id="name"
       class="input-field"
       type="text"
       formControlName="name"
@@ -25,7 +27,7 @@
     />
   </div>
   <div class="field">
-    <label for="quantity">Cantidad</label>
+    <label for="quantity">Cantidad*</label>
     <input
       id="quantity"
       class="input-field"
@@ -49,7 +51,7 @@
     </select>
   </div>
   <div class="field">
-    <label for="price">Descripción</label>
+    <label for="description">Descripción</label>
     <textarea
       id="description"
       class="input-field"
@@ -62,6 +64,7 @@
   <div class="field">
     <button
       type="submit"
+      [disabled]="this.productForm.invalid"
     >Crear Producto</button>
   </div>
 </form>

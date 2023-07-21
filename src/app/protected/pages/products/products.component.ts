@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Category } from 'src/app/auth/interfaces/category.interface';
 
 @Component({
@@ -7,6 +8,7 @@ import { Category } from 'src/app/auth/interfaces/category.interface';
   styleUrls: ['./products.component.css']
 })
 export class ProductsComponent {
+  // Atributos
   categories: Array<Category> = [
     {
       _id: 'fruits',
@@ -19,4 +21,45 @@ export class ProductsComponent {
       description: 'Vegetables',
     }
   ];
+
+  // Procuramos usar los mismos nombres que espera nuestra API en las propiedades que agrupamos en nuestro FormBuilder Group
+  productForm: FormGroup = this.fb.group({
+    name: [
+      '',   // Valor por defecto
+      [
+        Validators.required
+      ]
+    ],
+    price: [
+      '',   // Valor por defecto
+      []
+    ],
+    quantity: [
+      '',   // Valor por defecto
+      [
+        Validators.required,
+        Validators.min( 1 )
+      ]
+    ],
+    category: [
+      '',  // Valor por defecto
+      []
+    ],
+    description: [
+      '',  // Valor por defecto
+      []
+    ]
+  });
+
+  constructor(
+    private fb: FormBuilder
+  ) {}
+
+  createProduct() {
+    console.group( 'productForm' );
+    console.log( this.productForm.value );
+    console.log( this.productForm.valid );
+    console.groupEnd();
+  }
+
 }
