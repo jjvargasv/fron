@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+
 import { Category } from 'src/app/auth/interfaces/category.interface';
+import { ProductsService } from 'src/app/services/products.service';
 
 @Component({
   selector: 'app-products',
@@ -52,7 +54,8 @@ export class ProductsComponent {
   });
 
   constructor(
-    private fb: FormBuilder
+    private fb: FormBuilder,
+    private productService: ProductsService
   ) {}
 
   createProduct() {
@@ -60,6 +63,13 @@ export class ProductsComponent {
     console.log( this.productForm.value );
     console.log( this.productForm.valid );
     console.groupEnd();
+
+    this.productService.createProduct( this.productForm.value )
+      .subscribe( ( response ) => {
+        console.log( response );
+      });
+
+
   }
 
 }
