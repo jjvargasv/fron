@@ -3,11 +3,13 @@ import { CommonModule } from '@angular/common';
 
 import { ProtectedRoutingModule } from './protected-routing.module';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
+import { MainComponent } from './pages/main/main.component';
 
 
 @NgModule({
   declarations: [
-    DashboardComponent
+    DashboardComponent,
+    MainComponent
   ],
   imports: [
     CommonModule,
