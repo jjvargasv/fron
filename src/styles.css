@@ -1,5 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
-.form-auth {
+.form-auth,
+.form-product {
   max-width: 50%;
   border: 1px dotted;
   display: flex;
@@ -9,7 +10,8 @@
   margin: 0 auto;
 }
 
-.form-auth .field {
+.form-auth .field,
+.form-product .field {
   display: flex;
   flex-direction: column;
   margin: 0.3rem 0;
