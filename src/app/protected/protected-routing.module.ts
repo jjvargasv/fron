@@ -1,9 +1,12 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { DashboardComponent } from './pages/dashboard/dashboard.component';
+
 import { validateTokenGuard } from '../auth/guards/validate-token.guard';
+
+import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { MainComponent } from './pages/main/main.component';
 import { ProductsComponent } from './pages/products/products.component';
+import { NewProductComponent } from './pages/products/new-product/new-product.component';
 
 const routes: Routes = [
   {
@@ -17,6 +20,10 @@ const routes: Routes = [
       {
         path: 'products',
         component: ProductsComponent
+      },
+      {
+        path: 'products/new',
+        component: NewProductComponent
       },
       {
         path: '**',
