@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from 'src/app/auth/services/auth.service';
 import { ProductsService } from 'src/app/services/products.service';
+import { Product } from '../../interfaces/product.interface';
 
 @Component({
   selector: 'app-products',
@@ -9,6 +10,7 @@ import { ProductsService } from 'src/app/services/products.service';
 })
 export class ProductsComponent implements OnInit {
   userId!: string;
+  products!: Array<Product>;
 
   constructor(
     private authService: AuthService,
@@ -21,6 +23,8 @@ export class ProductsComponent implements OnInit {
     this.productsService.getProductsByUser( this.userId )
       .subscribe( value => {
         console.log( value );
+
+        this.products = value;
       });
   }
 

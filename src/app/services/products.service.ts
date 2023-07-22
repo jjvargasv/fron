@@ -2,6 +2,8 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
 import { Product } from '../protected/interfaces/product.interface';
+import { map, tap } from 'rxjs';
+import { Products } from '../auth/interfaces/products.interface';
 
 @Injectable({
   providedIn: 'root'
@@ -34,9 +36,15 @@ export class ProductsService {
 
   getProductsByUser( userId: string ) {
 
-    return this.http.get(
+    return this.http.get<Products>(
       `${ this.BASE_URL }/products/user/${ userId }`,   // URL del BackEnd al que debemos hacer la peticion
       { headers: this.headers }                         // Cabeceras con información requerida
+    )
+    .pipe(
+      tap( response => {
+        console.log( response );
+      }),
+      map( response => response[ 'products' ] )
     );
   }
 
