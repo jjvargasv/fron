@@ -22,7 +22,10 @@
         <td>{{ product.quantity }}</td>
         <td>{{ product.ranking }}</td>
         <td>
-          <button class="btn btn-primary">
+          <button
+            class="btn btn-primary"
+            (click)="update( product._id )"
+          >
             Edit
           </button>
         </td>

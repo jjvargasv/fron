@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AuthService } from 'src/app/auth/services/auth.service';
 import { ProductsService } from 'src/app/services/products.service';
 import { Product } from '../../interfaces/product.interface';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-products',
@@ -14,7 +15,8 @@ export class ProductsComponent implements OnInit {
 
   constructor(
     private authService: AuthService,
-    private productsService: ProductsService
+    private productsService: ProductsService,
+    private router: Router
   ) {
     this.userId = this.authService.user._id;
   }
@@ -36,6 +38,10 @@ export class ProductsComponent implements OnInit {
         this.products = this.products.filter( product => product._id != value._id );
 
       });
+  }
+
+  update( id: string | undefined ) {
+    this.router.navigateByUrl( `/dashboard/products/update/${ id }` );
   }
 
 }
