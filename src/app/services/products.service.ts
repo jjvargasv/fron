@@ -5,6 +5,7 @@ import { catchError, map, of, tap } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { Product } from '../protected/interfaces/product.interface';
 import { Products } from '../auth/interfaces/products.interface';
+import { ProductResponse } from '../protected/interfaces/product-response.interface';
 
 @Injectable({
   providedIn: 'root'
@@ -46,6 +47,16 @@ export class ProductsService {
         console.log( response );
       }),
       map( response => response[ 'products' ] )
+    );
+  }
+
+  getProductById( productId: string ) {
+    return this.http.get<ProductResponse>(
+      `${ this.BASE_URL }/products/${ productId }`,   // URL del BackEnd al que debemos hacer la peticion
+      { headers: this.headers }                         // Cabeceras con información requerida
+    ).pipe(
+      tap( ( console.log ) ),
+      map( response => response.product )
     );
   }
 
