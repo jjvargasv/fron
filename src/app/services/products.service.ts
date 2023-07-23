@@ -1,8 +1,9 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { catchError, map, of, tap } from 'rxjs';
+
 import { environment } from 'src/environments/environment';
 import { Product } from '../protected/interfaces/product.interface';
-import { map, tap } from 'rxjs';
 import { Products } from '../auth/interfaces/products.interface';
 
 @Injectable({
@@ -45,6 +46,13 @@ export class ProductsService {
         console.log( response );
       }),
       map( response => response[ 'products' ] )
+    );
+  }
+
+  deleteProduct( userId: string | undefined ) {
+    return this.http.delete<Product>(
+      `${ this.BASE_URL }/products/${ userId }`,   // URL del BackEnd al que debemos hacer la peticion
+      { headers: this.headers }                         // Cabeceras con información requerida
     );
   }
 

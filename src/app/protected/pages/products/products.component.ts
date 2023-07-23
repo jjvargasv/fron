@@ -28,4 +28,14 @@ export class ProductsComponent implements OnInit {
       });
   }
 
+  delete( id: string | undefined ) {
+    this.productsService.deleteProduct( id )
+      .subscribe( value => {
+        console.log( value );
+
+        this.products = this.products.filter( product => product._id != value._id );
+
+      });
+  }
+
 }
