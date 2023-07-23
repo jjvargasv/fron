@@ -13,7 +13,7 @@ import { categories } from '../fake-categories';
   styleUrls: ['./new-product.component.css']
 })
 export class NewProductComponent {
-    // Atributos
+  // Atributos
   categories: Array<Category> = categories;
 
   // Procuramos usar los mismos nombres que espera nuestra API en las propiedades que agrupamos en nuestro FormBuilder Group

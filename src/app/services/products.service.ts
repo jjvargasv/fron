@@ -51,6 +51,7 @@ export class ProductsService {
   }
 
   getProductById( productId: string ) {
+
     return this.http.get<ProductResponse>(
       `${ this.BASE_URL }/products/${ productId }`,   // URL del BackEnd al que debemos hacer la peticion
       { headers: this.headers }                         // Cabeceras con información requerida
@@ -61,8 +62,18 @@ export class ProductsService {
   }
 
   deleteProduct( userId: string | undefined ) {
+
     return this.http.delete<Product>(
       `${ this.BASE_URL }/products/${ userId }`,   // URL del BackEnd al que debemos hacer la peticion
+      { headers: this.headers }                         // Cabeceras con información requerida
+    );
+  }
+
+  updateProduct( productId: string, product: Product ) {
+
+    return this.http.patch(
+      `${ this.BASE_URL }/products/${ productId }`,   // URL del BackEnd al que debemos hacer la peticion
+      product,
       { headers: this.headers }                         // Cabeceras con información requerida
     );
   }

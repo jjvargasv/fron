@@ -16,6 +16,7 @@ import { Product } from 'src/app/protected/interfaces/product.interface';
 export class UpdateProductComponent implements OnInit {
   // Atributos
   categories: Array<Category> = categories;
+  productId!: string;
   product!: Product;
 
   // Procuramos usar los mismos nombres que espera nuestra API en las propiedades que agrupamos en nuestro FormBuilder Group
@@ -59,6 +60,7 @@ export class UpdateProductComponent implements OnInit {
       .pipe(
         switchMap( ( result ) => {
           const { id: productId } = result;
+          this.productId = productId;
 
           return this.productService.getProductById( productId );
         } )
@@ -86,7 +88,23 @@ export class UpdateProductComponent implements OnInit {
     console.group( 'productForm' );
     console.log( this.productForm.value );
     console.log( this.productForm.valid );
+    console.log( this.productId );
     console.groupEnd();
+
+    this.productService.updateProduct(
+      this.productId,
+      this.productForm.value
+    )
+      .subscribe( ( response ) => {
+        console.log( response );
+      });
+
+    this.productForm.reset();
+
+    setTimeout( () => {
+      this.router.navigate( [ 'dashboard', 'products' ] );
+    }, 1000 );
+
   }
 
 }
