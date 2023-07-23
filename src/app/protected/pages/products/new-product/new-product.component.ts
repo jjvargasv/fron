@@ -5,6 +5,8 @@ import { Router } from '@angular/router';
 import { Category } from 'src/app/auth/interfaces/category.interface';
 import { ProductsService } from 'src/app/services/products.service';
 
+import { categories } from '../fake-categories';
+
 @Component({
   selector: 'app-new-product',
   templateUrl: './new-product.component.html',
@@ -12,18 +14,7 @@ import { ProductsService } from 'src/app/services/products.service';
 })
 export class NewProductComponent {
     // Atributos
-  categories: Array<Category> = [
-    {
-      _id: 'fruits',
-      name: 'Fruits',
-      description: 'Fruits',
-    },
-    {
-      _id: 'vegetables',
-      name: 'Vegetables',
-      description: 'Vegetables',
-    }
-  ];
+  categories: Array<Category> = categories;
 
   // Procuramos usar los mismos nombres que espera nuestra API en las propiedades que agrupamos en nuestro FormBuilder Group
   productForm: FormGroup = this.fb.group({
