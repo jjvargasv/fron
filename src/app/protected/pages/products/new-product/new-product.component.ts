@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 
 import { Category } from 'src/app/auth/interfaces/category.interface';
 import { ProductsService } from 'src/app/services/products.service';
@@ -55,7 +56,8 @@ export class NewProductComponent {
 
   constructor(
     private fb: FormBuilder,
-    private productService: ProductsService
+    private productService: ProductsService,
+    private router: Router
   ) {}
 
   createProduct() {
@@ -69,5 +71,10 @@ export class NewProductComponent {
         console.log( response );
       });
 
+    this.productForm.reset();
+
+    setTimeout( () => {
+      this.router.navigate( [ 'dashboard', 'products' ] );
+    }, 1000 );
   }
 }
