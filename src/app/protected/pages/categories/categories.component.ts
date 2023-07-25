@@ -10,6 +10,8 @@ import { Category } from '../../interfaces/category.interface';
 })
 export class CategoriesComponent implements OnInit {
   categories! : Array<Category>;    // categories! : Category[];
+  selectedCategory!: Category;
+  selectedCategoryId!: string;
 
   // Procuramos usar los mismos nombres que espera nuestra API en las propiedades que agrupamos en nuestro FormBuilder Group
   categoryForm: FormGroup = this.fb.group({
@@ -44,6 +46,23 @@ export class CategoriesComponent implements OnInit {
       });
   }
 
+  loadCategory( category: Category ) {
+    this.selectedCategory = category;
+
+    this.categoryForm.patchValue({
+      name: category.name,
+      description: category.description,
+    });
+  }
+
+  createOrUpdateCategory() {
+    if ( this.selectedCategory ) {
+      this.updateCategory();
+    } else {
+      this.createCategory();
+    }
+  }
+
   createCategory() {
     console.group( 'categoryForm' );
     console.log( this.categoryForm.value );
@@ -68,6 +87,38 @@ export class CategoriesComponent implements OnInit {
         this.loadCategories();
       });
   }
+
+  updateCategory() {
+
+    if ( ! this.selectedCategory )  {
+      console.error('Selected category is undefined.');
+
+      return;
+    }
+
+    // Actualiza la categoría con los nuevos datos del formulario.
+    this.selectedCategory.name = this.categoryForm.get( 'name' )?.value;
+    this.selectedCategory.description = this.categoryForm.get( 'description' )?.value;
+
+
+    const category = { ...this.selectedCategory };
+
+    console.log( category );
+    this.categoriesService.updateCategory( category )
+      .subscribe( response => {
+        console.log( response );
+      });
+
+
+    // this.categoriesService.updateCategory( this.selectedCategory )
+    //   .subscribe((response) => {
+    //   console.log('Category updated', response);
+
+    //   this.categoryForm.reset();
+    //   this.loadCategories();
+    // });
+  }
+
 
 
 }

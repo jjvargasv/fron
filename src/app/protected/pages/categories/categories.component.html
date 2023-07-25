@@ -1,7 +1,7 @@
 <form
   class="form form-product"
   [formGroup]="categoryForm"
-  (ngSubmit)="createCategory()"
+  (ngSubmit)="createOrUpdateCategory()"
   autocomplete="off"
 >
   <h2>Categorias</h2>
@@ -31,7 +31,7 @@
     <button
       type="submit"
       [disabled]="categoryForm.invalid"
-    >Crear Categoria</button>
+    >{{ this.selectedCategory ? "Editar" : "Crear" }} Categoria</button>
   </div>
 </form>
 
@@ -57,6 +57,7 @@
         <td>
           <button
             class="btn btn-primary"
+            (click)="loadCategory( category )"
           >
             Edit
           </button>

@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 
 import { environment } from 'src/environments/environment';
 import { Category } from '../auth/interfaces/category.interface';
-import { map, tap } from 'rxjs';
+import { Observable, map, tap } from 'rxjs';
 import { CategoryResponse } from '../protected/interfaces/category-response.interface';
 
 
@@ -53,6 +53,16 @@ export class CategoriesService {
 
     return this.http.delete<Category>(
       `${ this.BASE_URL }/categories/${ categoryId }`,   // URL del BackEnd al que debemos hacer la peticion
+      { headers: this.headers }                         // Cabeceras con información requerida
+    );
+  }
+
+  // TODO: Verificar el tipado para categoria en este punto
+  updateCategory( category: any ) {
+
+    return this.http.patch(
+      `${ this.BASE_URL }/categories/${ category._id }`,   // URL del BackEnd al que debemos hacer la peticion
+      category,
       { headers: this.headers }                         // Cabeceras con información requerida
     );
   }
