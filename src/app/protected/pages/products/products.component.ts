@@ -22,11 +22,15 @@ export class ProductsComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.productsService.getProductsByUser( this.userId )
-      .subscribe( value => {
-        console.log( value );
+    this.loadProducts();
+  }
 
-        this.products = value;
+  loadProducts() {
+    this.productsService.getProductsByUser( this.userId )
+      .subscribe( products => {
+        console.log( products );
+
+        this.products = products;
       });
   }
 
@@ -35,7 +39,7 @@ export class ProductsComponent implements OnInit {
       .subscribe( value => {
         console.log( value );
 
-        // this.products = this.products.filter( product => product._id != value._id );
+        this.loadProducts();
 
       });
   }
