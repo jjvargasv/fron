@@ -1,12 +1,15 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { CategoriesService } from 'src/app/services/categories.service';
+import { Category } from '../../interfaces/category.interface';
 
 @Component({
   selector: 'app-categories',
   templateUrl: './categories.component.html',
   styleUrls: ['./categories.component.css']
 })
-export class CategoriesComponent {
+export class CategoriesComponent implements OnInit {
+  categories! : Array<Category>;    // categories! : Category[];
 
   // Procuramos usar los mismos nombres que espera nuestra API en las propiedades que agrupamos en nuestro FormBuilder Group
   categoryForm: FormGroup = this.fb.group({
@@ -24,8 +27,21 @@ export class CategoriesComponent {
   });
 
   constructor(
-    private fb: FormBuilder
+    private fb: FormBuilder,
+    private categoriesService: CategoriesService
   ) {}
+
+
+  ngOnInit(): void {
+    this.loadCategories();
+  }
+
+  loadCategories() {
+    this.categoriesService.getCategories()
+      .subscribe( categories => {
+        this.categories = categories;
+      });
+  }
 
 
   createCategory() {
@@ -33,5 +49,6 @@ export class CategoriesComponent {
     console.log( this.categoryForm.value );
     console.log( this.categoryForm.valid );
     console.groupEnd();
+
   }
 }

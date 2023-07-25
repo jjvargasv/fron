@@ -34,3 +34,46 @@
     >Crear Categoria</button>
   </div>
 </form>
+
+
+<h2>Lista de productos</h2>
+
+<ng-container *ngIf="categories && categories.length > 0; then categoryList; else noCategories">
+</ng-container>
+
+<ng-template #categoryList>
+  <h3>Categorias registradas</h3>
+
+  <table class="table table-products">
+    <thead>
+      <th>Nombre</th>
+      <th>Description</th>
+      <th colspan="2">Acciones</th>
+    </thead>
+    <tbody>
+      <tr *ngFor="let category of categories">
+        <td>{{ category.name }}</td>
+        <td>{{ category.description }}</td>
+        <td>
+          <button
+            class="btn btn-primary"
+          >
+            Edit
+          </button>
+        </td>
+        <td>
+          <button
+            class="btn btn-primary"
+          >
+            Delete
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+</ng-template>
+
+<ng-template #noCategories>
+  <h3>No has registdado categorias</h3>
+</ng-template>
