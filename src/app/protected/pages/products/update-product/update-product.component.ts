@@ -7,6 +7,7 @@ import { ProductsService } from 'src/app/services/products.service';
 import { categories } from '../fake-categories';
 import { switchMap } from 'rxjs';
 import { Product } from 'src/app/protected/interfaces/product.interface';
+import { CategoriesService } from 'src/app/services/categories.service';
 
 @Component({
   selector: 'app-update-product',
@@ -15,7 +16,7 @@ import { Product } from 'src/app/protected/interfaces/product.interface';
 })
 export class UpdateProductComponent implements OnInit {
   // Atributos
-  categories: Array<Category> = categories;
+  categories!: Array<any>;
   productId!: string;
   product!: Product;
 
@@ -52,10 +53,13 @@ export class UpdateProductComponent implements OnInit {
     private fb: FormBuilder,
     private productService: ProductsService,
     private router: Router,
-    private activatedRoute: ActivatedRoute
+    private activatedRoute: ActivatedRoute,
+    private categoriesService: CategoriesService
   ) {}
 
   ngOnInit(): void {
+    this.loadCategories();
+
     this.activatedRoute.params
       .pipe(
         switchMap( ( result ) => {
@@ -76,7 +80,7 @@ export class UpdateProductComponent implements OnInit {
           name: this.product?.name,
           price: this.product?.price,
           quantity: this.product?.quantity,
-          category: this.product?.category,         // TODO: Hacer que el campo select en la vista tambien se actualice
+          category: this.product?.category,
           description: this.product?.description
         });
       });
@@ -105,6 +109,13 @@ export class UpdateProductComponent implements OnInit {
       this.router.navigate( [ 'dashboard', 'products' ] );
     }, 1000 );
 
+  }
+
+  loadCategories() {
+    this.categoriesService.getCategories()
+      .subscribe( categories => {
+        this.categories = categories;
+      });
   }
 
 }

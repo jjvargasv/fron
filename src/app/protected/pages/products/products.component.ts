@@ -35,7 +35,7 @@ export class ProductsComponent implements OnInit {
       .subscribe( value => {
         console.log( value );
 
-        this.products = this.products.filter( product => product._id != value._id );
+        // this.products = this.products.filter( product => product._id != value._id );
 
       });
   }

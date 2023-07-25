@@ -46,7 +46,7 @@
       <option value="">Seleccione...</option>
       <option
         *ngFor="let category of categories"
-        value="{{ category._id }}"
+        value="{{ category.name }}"
       >{{ category.name }}</option>
     </select>
   </div>

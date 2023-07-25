@@ -1,20 +1,20 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 
 import { Category } from 'src/app/auth/interfaces/category.interface';
 import { ProductsService } from 'src/app/services/products.service';
 
-import { categories } from '../fake-categories';
+import { CategoriesService } from 'src/app/services/categories.service';
 
 @Component({
   selector: 'app-new-product',
   templateUrl: './new-product.component.html',
   styleUrls: ['./new-product.component.css']
 })
-export class NewProductComponent {
+export class NewProductComponent implements OnInit {
   // Atributos
-  categories: Array<Category> = categories;
+  categories!: Array<any>;
 
   // Procuramos usar los mismos nombres que espera nuestra API en las propiedades que agrupamos en nuestro FormBuilder Group
   productForm: FormGroup = this.fb.group({
@@ -48,8 +48,13 @@ export class NewProductComponent {
   constructor(
     private fb: FormBuilder,
     private productService: ProductsService,
-    private router: Router
+    private router: Router,
+    private categoriesService: CategoriesService
   ) {}
+
+  ngOnInit(): void {
+    this.loadCategories();
+  }
 
   createProduct() {
     console.group( 'productForm' );
@@ -68,4 +73,12 @@ export class NewProductComponent {
       this.router.navigate( [ 'dashboard', 'products' ] );
     }, 1000 );
   }
+
+  loadCategories() {
+    this.categoriesService.getCategories()
+      .subscribe( categories => {
+        this.categories = categories;
+      });
+  }
+
 }
