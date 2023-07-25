@@ -25,7 +25,6 @@ export class CategoriesService {
     // console.log( this.token );
   }
 
-
   getCategories() {
 
     return this.http.get<CategoryResponse>(
@@ -40,6 +39,14 @@ export class CategoriesService {
     );
   }
 
+  /** Realiza petición al endpoint del BackEnd que registra productos */
+  createCategory( category: Category ) {
 
+    return this.http.post(
+      `${ this.BASE_URL }/categories`,      // URL del BackEnd al que debemos hacer la peticion
+      category,                            // Objeto de producto a crear
+      { headers: this.headers }           // Cabeceras con información requerida
+    );
+  }
 
 }

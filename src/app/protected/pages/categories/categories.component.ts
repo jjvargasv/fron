@@ -37,6 +37,7 @@ export class CategoriesComponent implements OnInit {
   }
 
   loadCategories() {
+    console.log( 'loadCategories' )
     this.categoriesService.getCategories()
       .subscribe( categories => {
         this.categories = categories;
@@ -50,5 +51,17 @@ export class CategoriesComponent implements OnInit {
     console.log( this.categoryForm.valid );
     console.groupEnd();
 
+    this.categoriesService.createCategory( this.categoryForm.value )
+      .subscribe( response => {
+        console.log( response );
+
+        this.categoryForm.reset();
+        this.loadCategories();
+      });
+
+
+
   }
+
+
 }
