@@ -1,5 +1,7 @@
 <form
   class="form form-product"
+  [formGroup]="categoryForm"
+  (ngSubmit)="createCategory()"
   autocomplete="off"
 >
   <h2>Categorias</h2>
@@ -10,7 +12,7 @@
       id="name"
       class="input-field"
       type="text"
-      name="name"
+      formControlName="name"
       placeholder="Nombre del Producto"
     />
   </div>
@@ -19,7 +21,7 @@
     <textarea
       id="description"
       class="input-field"
-      name="description"
+      formControlName="description"
       placeholder="Descripción del Producto"
       cols="20"
       rows="5"
@@ -28,6 +30,7 @@
   <div class="field">
     <button
       type="submit"
-    >Crear Caegoria</button>
+      [disabled]="categoryForm.invalid"
+    >Crear Categoria</button>
   </div>
 </form>
