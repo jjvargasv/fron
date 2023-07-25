@@ -44,7 +44,6 @@ export class CategoriesComponent implements OnInit {
       });
   }
 
-
   createCategory() {
     console.group( 'categoryForm' );
     console.log( this.categoryForm.value );
@@ -59,8 +58,15 @@ export class CategoriesComponent implements OnInit {
         this.loadCategories();
       });
 
+  }
 
+  deleteCategory( categoryId: string | undefined ) {
+    this.categoriesService.deleteCategory( categoryId )
+      .subscribe( response => {
+        console.log( response );
 
+        this.loadCategories();
+      });
   }
 
 

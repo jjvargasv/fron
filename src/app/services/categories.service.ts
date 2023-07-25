@@ -49,4 +49,12 @@ export class CategoriesService {
     );
   }
 
+  deleteCategory( categoryId: string | undefined ) {
+
+    return this.http.delete<Category>(
+      `${ this.BASE_URL }/categories/${ categoryId }`,   // URL del BackEnd al que debemos hacer la peticion
+      { headers: this.headers }                         // Cabeceras con información requerida
+    );
+  }
+
 }
