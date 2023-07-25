@@ -8,6 +8,7 @@ import { MainComponent } from './pages/main/main.component';
 import { ProductsComponent } from './pages/products/products.component';
 import { NewProductComponent } from './pages/products/new-product/new-product.component';
 import { UpdateProductComponent } from './pages/products/update-product/update-product.component';
+import { CategoriesComponent } from './pages/categories/categories.component';
 
 const routes: Routes = [
   {
@@ -29,6 +30,10 @@ const routes: Routes = [
       {
         path: 'products/update/:id',
         component: UpdateProductComponent
+      },
+      {
+        path: 'categories',
+        component: CategoriesComponent
       },
       {
         path: '**',
