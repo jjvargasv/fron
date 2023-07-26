@@ -8,7 +8,7 @@ import { ProductsService } from 'src/app/services/products.service';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-  products!: Products;
+  products: Products = { products: [] };
 
   constructor(
     private productsService: ProductsService
@@ -17,6 +17,10 @@ export class HomeComponent implements OnInit {
   ngOnInit(): void {
     this.productsService.getProducts()
       .subscribe( products => this.products = products );
+  }
+
+  addToCart() {
+    console.log( 'Agrega al carrito' );
   }
 
 }

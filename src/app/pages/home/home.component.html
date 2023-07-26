@@ -1,1 +1,43 @@
-<p>home works!</p>
+<ng-container *ngIf="products && products.products.length > 0 && products.products; then productList; else noProducts">
+</ng-container>
+
+<ng-template #productList>
+  <ul>
+    <li *ngFor="let product of products.products">
+      <a routerLink="/products/{{ product._id }}">
+        <img [src]="product.urlImage" [alt]="product.name" />
+
+        <div class="content">
+
+          <div class="name">
+            {{ product.name }}
+          </div>
+          <span class="favorite">
+            ❤
+          </span>
+          <div class="description">
+            {{ product.description }}
+          </div>
+          <div class="product-item-footer">
+            <div class="ranking">
+              {{ product.ranking }}
+            </div>
+          </div>
+        </div>
+
+        <div class="footer">
+          <span>{{ product.price | currency }}</span>
+          <button
+            type="button"
+            (click)="addToCart()"
+          >Agregar a carrito</button>
+        </div>
+      </a>
+    </li>
+  </ul>
+
+</ng-template>
+
+<ng-template #noProducts>
+  <h3>La tienda no posee productos</h3>
+</ng-template>
