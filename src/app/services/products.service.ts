@@ -36,6 +36,12 @@ export class ProductsService {
     );
   }
 
+  getProducts() {
+    return this.http.get<Products>(
+      `${ this.BASE_URL }/products/`,   // URL del BackEnd al que debemos hacer la peticion
+    );
+  }
+
   getProductsByUser( userId: string ) {
 
     return this.http.get<Products>(
