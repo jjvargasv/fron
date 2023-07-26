@@ -10,7 +10,7 @@ import { Category } from '../../interfaces/category.interface';
 })
 export class CategoriesComponent implements OnInit {
   categories! : Array<Category>;    // categories! : Category[];
-  selectedCategory!: Category;
+  selectedCategory: Category | null = null;
   selectedCategoryId!: string;
 
   // Procuramos usar los mismos nombres que espera nuestra API en las propiedades que agrupamos en nuestro FormBuilder Group
@@ -110,13 +110,10 @@ export class CategoriesComponent implements OnInit {
       });
 
 
-    // this.categoriesService.updateCategory( this.selectedCategory )
-    //   .subscribe((response) => {
-    //   console.log('Category updated', response);
-
-    //   this.categoryForm.reset();
-    //   this.loadCategories();
-    // });
+    // Restablece la categoría y el formulario seleccionados después de que la actualización sea exitosa.
+    this.selectedCategory = null;
+    this.categoryForm.reset();
+    this.loadCategories();
   }
 
 
