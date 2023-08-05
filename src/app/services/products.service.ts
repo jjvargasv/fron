@@ -1,6 +1,6 @@
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { catchError, map, of, tap } from 'rxjs';
+import { Observable, map, tap, throwError } from 'rxjs';
 
 import { environment } from 'src/environments/environment';
 import { Product } from '../protected/interfaces/product.interface';
@@ -34,6 +34,48 @@ export class ProductsService {
       product,                            // Objeto de producto a crear
       { headers: this.headers }           // Cabeceras con información requerida
     );
+  }
+
+  create2Product( productForm: any ) : Observable<any> {
+    const formData = new FormData();
+    // formData.append('file', this.uploadForm.get('profile').value);
+
+    formData.append( 'name', productForm.get( 'name' ).value );
+    formData.append( 'price', productForm.get( 'price' ).value );
+    formData.append( 'description', productForm.get( 'description' ).value );
+    formData.append( 'quantity', productForm.get( 'quantity' ).value  );
+    formData.append( 'category', productForm.get( 'category' ).value );
+    formData.append( 'urlImage', productForm.get( 'urlImage' ).value  );
+
+    console.log( '<<<<<<', formData );
+
+    return this.http.post<Product>(
+      `${ this.BASE_URL }/products`,      // URL del BackEnd al que debemos hacer la peticion
+      formData,                            // Objeto de producto a crear
+      {                                   // Cabeceras con información requerida 
+        headers: this.headers,
+        reportProgress: false,
+        observe: 'events'
+      }
+    );
+  }
+
+  errorMgmt( error: HttpErrorResponse ) {
+    let errorMessage = '';
+
+    if( error.error instanceof ErrorEvent ) {
+      errorMessage = error.error.message;
+    }
+    else {
+      errorMessage = `Error Code ${ error.status }\nMessage: ${ error.message }`;
+    }
+
+    console.log( errorMessage );
+
+    return throwError( () => {
+      return errorMessage;
+    });
+
   }
 
   getProducts() {

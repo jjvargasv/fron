@@ -1,7 +1,7 @@
 <form
   class="form form-product"
   [formGroup]="productForm"
-  (ngSubmit)="createProduct()"
+  (ngSubmit)="create2Product()"
   autocomplete="off"
 >
   <h2>Productos</h2>
@@ -34,6 +34,22 @@
       type="number"
       formControlName="quantity"
       placeholder="Cantidad disponible del Producto"
+    />
+  </div>
+  <div
+    class="field"
+    *ngIf="preview && preview !== null"
+  >
+    <img [src]="preview" [alt]="productForm.value.name" />
+  </div>
+  <div class="field">
+    <label for="image">Cantidad*</label>
+    <input
+      id="image"
+      class="input-field"
+      type="file"
+      
+      (change)="updateFile($event)"
     />
   </div>
   <div class="field">

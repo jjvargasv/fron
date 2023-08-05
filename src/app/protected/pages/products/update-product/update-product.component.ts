@@ -46,7 +46,8 @@ export class UpdateProductComponent implements OnInit {
     description: [
       '',  // Valor por defecto
       []
-    ]
+    ],
+    urlImage: [ null ]
   });
 
   constructor(
