@@ -37,6 +37,7 @@ export class ProductsService {
   }
 
   create2Product( productForm: any ) : Observable<any> {
+    
     const formData = new FormData();
     // formData.append('file', this.uploadForm.get('profile').value);
 
@@ -47,7 +48,7 @@ export class ProductsService {
     formData.append( 'category', productForm.get( 'category' ).value );
     formData.append( 'urlImage', productForm.get( 'urlImage' ).value  );
 
-    console.log( '<<<<<<', formData );
+    
 
     return this.http.post<Product>(
       `${ this.BASE_URL }/products`,      // URL del BackEnd al que debemos hacer la peticion
@@ -87,7 +88,7 @@ export class ProductsService {
   getProductsByUser( userId: string ) {
 
     return this.http.get<Products>(
-      `${ this.BASE_URL }/products/user/${ userId }`,   // URL del BackEnd al que debemos hacer la peticion
+      `${ this.BASE_URL }/products/user`,   // URL del BackEnd al que debemos hacer la peticion
       { headers: this.headers }                         // Cabeceras con información requerida
     )
     .pipe(
@@ -117,11 +118,22 @@ export class ProductsService {
     );
   }
 
-  updateProduct( productId: string, product: Product ) {
+  updateProduct( productId: string, productForm: any ) : Observable<any> {
+    const formData = new FormData();
+    // formData.append('file', this.uploadForm.get('profile').value);
+
+    formData.append( 'name', productForm.get( 'name' ).value );
+    formData.append( 'price', productForm.get( 'price' ).value );
+    formData.append( 'description', productForm.get( 'description' ).value );
+    formData.append( 'quantity', productForm.get( 'quantity' ).value  );
+    formData.append( 'category', productForm.get( 'category' ).value );
+    formData.append( 'urlImage', productForm.get( 'urlImage' ).value  );
+
+    
 
     return this.http.patch(
       `${ this.BASE_URL }/products/${ productId }`,   // URL del BackEnd al que debemos hacer la peticion
-      product,
+      formData,
       { headers: this.headers }                         // Cabeceras con información requerida
     );
   }

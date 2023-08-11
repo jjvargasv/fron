@@ -1,13 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Category } from 'src/app/auth/interfaces/category.interface';
 import { ProductsService } from 'src/app/services/products.service';
 
-import { categories } from '../fake-categories';
 import { switchMap } from 'rxjs';
 import { Product } from 'src/app/protected/interfaces/product.interface';
 import { CategoriesService } from 'src/app/services/categories.service';
+import { HttpEvent, HttpEventType } from '@angular/common/http';
 
 @Component({
   selector: 'app-update-product',
@@ -19,6 +18,9 @@ export class UpdateProductComponent implements OnInit {
   categories!: Array<any>;
   productId!: string;
   product!: Product;
+  preview!: any;
+  percentDone: any = 0;
+  users = [];
 
   // Procuramos usar los mismos nombres que espera nuestra API en las propiedades que agrupamos en nuestro FormBuilder Group
   productForm: FormGroup = this.fb.group({
@@ -78,15 +80,36 @@ export class UpdateProductComponent implements OnInit {
 
         /** Establece los valores de cada uno de los campos del formulario */
         this.productForm.setValue({
-          name: this.product?.name,
-          price: this.product?.price,
-          quantity: this.product?.quantity,
-          category: this.product?.category,
-          description: this.product?.description
+          name: product?.name,
+          price: product?.price,
+          quantity: product?.quantity,
+          category: product?.category,
+          description: product?.description,
+          urlImage: product?.urlImage
         });
       });
 
 
+  }
+
+  updateFile( event: any ) {
+    const file = (event.target).files[ 0 ];
+
+    this.productForm.patchValue({
+      urlImage: file
+    });
+
+    this.productForm.get( 'urlImage' )?.updateValueAndValidity();
+/*     this.preview = this.productForm.get('urlImage')?.updateValueAndValidity();
+ */
+    /*** Leer el path del archivo para mostrar el preview */
+    const reader = new FileReader();
+
+    reader.onload = () => {
+      this.preview = reader.result as string;
+    };
+
+    reader.readAsDataURL( file );
   }
 
   updateProduct() {
@@ -98,11 +121,28 @@ export class UpdateProductComponent implements OnInit {
 
     this.productService.updateProduct(
       this.productId,
-      this.productForm.value
+      this.productForm
     )
-      .subscribe( ( response ) => {
-        console.log( response );
-      });
+    .subscribe( ( event: HttpEvent<any> ) => {
+      switch( event.type ) {
+        case HttpEventType.Sent: 
+          console.log( 'Peticion realizada!' );
+          break;
+        case HttpEventType.ResponseHeader: 
+          console.log( 'La respuesta del \'header\' ha sido recibido!' );
+          break;
+        case HttpEventType.UploadProgress: 
+          // this.percentDone = Math.round( event.loaded / event.total * 100 );
+          // console.log( `Actualizado ${ this.percentDone }%` );
+          console.log( `Actualizo` );
+          break;
+        case HttpEventType.Response: 
+          console.log( 'El producto ha sido creado exitosamente!', event.body );
+          this.percentDone = false;
+          this.router.navigate( [ 'products' ] );
+      }
+    });
+
 
     this.productForm.reset();
 

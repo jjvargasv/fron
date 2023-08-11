@@ -10,6 +10,8 @@ import { NewProductComponent } from './pages/products/new-product/new-product.co
 import { UpdateProductComponent } from './pages/products/update-product/update-product.component';
 import { CategoriesComponent } from './pages/categories/categories.component';
 
+import { ResenasComponent } from './pages/resenas/resenas.component';
+
 
 @NgModule({
   declarations: [
@@ -18,7 +20,9 @@ import { CategoriesComponent } from './pages/categories/categories.component';
     ProductsComponent,
     NewProductComponent,
     UpdateProductComponent,
-    CategoriesComponent
+    CategoriesComponent,
+    
+    ResenasComponent
   ],
   imports: [
     CommonModule,

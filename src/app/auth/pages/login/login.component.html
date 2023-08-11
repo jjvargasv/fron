@@ -1,4 +1,4 @@
-<form
+<!-- <form
   class="form form-auth form-login"
   [formGroup]="loginForm"
   (ngSubmit)="login()"
@@ -36,3 +36,66 @@
     <p>Crea una <a routerLink="/auth/register">aquí</a></p>
   </div>
 </form>
+ -->
+
+<!-- ----------- nuevo------------ -->
+
+<link rel="stylesheet" href="login.component.css">
+
+
+
+  <div class="login-card">
+    <div class="card-header">
+      <h1>Login</h1>
+    </div>
+    <div class="card-body">
+      <form
+          class="form-group"
+          [formGroup]="loginForm"
+          (ngSubmit)="login()"
+          autocomplete="off"
+      >
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input
+            id="email"
+            class="input-field"
+            type="email"
+            formControlName="email"
+            placeholder="Ingrese su Email"
+          />
+        </div>
+      
+
+        <div class="form-group">
+          <label for="password">Password</label>
+          <input
+            id="password"
+            class="input-field"
+            type="password"
+            formControlName="password"
+            placeholder="Ingrese su Password"
+          />
+        </div>
+
+        
+
+        <div class="form-group">
+          <button
+          class="login-button"
+            type="submit"
+            [disabled]="this.loginForm.invalid"
+          >Ingresar</button>
+        </div>
+      
+
+        <div class="form-group">
+          <p>¿No tienes cuenta?</p>
+          <p> Crea una  &nbsp;  <a routerLink="/auth/register">
+            cuenta aqui
+            </a>
+          </p>
+        </div>
+      </form>
+    </div>
+  </div>

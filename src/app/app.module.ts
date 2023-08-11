@@ -13,7 +13,8 @@ import { FooterComponent } from './components/partials/footer/footer.component';
     AppComponent,
     HomeComponent,
     HeaderComponent,
-    FooterComponent
+    FooterComponent,
+    
   ],
   imports: [
     BrowserModule,

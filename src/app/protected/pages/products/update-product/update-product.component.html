@@ -36,6 +36,24 @@
       placeholder="Cantidad disponible del Producto"
     />
   </div>
+  <div
+    class="field"
+    *ngIf="preview && preview !== null"
+  >
+    <img [src]="preview" [alt]="productForm.value.name" />
+  </div>
+  <div class="field">
+    <label for="image">Cantidad*</label>
+    <span></span>
+    <input
+      id="image"
+      class="input-field"
+      type="file"
+      formControlName="urlImage"
+      
+      (change)="updateFile($event)"
+    />
+  </div>
   <div class="field">
     <label for="category">Categoria</label>
     <select

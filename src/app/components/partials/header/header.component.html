@@ -1,13 +1,74 @@
+
+
+<!-- ---------- header---------- -->
+
+<link rel="stylesheet" href="./header.component.css" />
+
 <header>
+  <div class="container_menu">  
+    <img src="img/Tecno.png" alt="" class="logo" />
+
+    <div class="menu">
+      <input type="checkbox" id="check_menu" />
+      <label for="check_menu" id="label_check">
+        <i class="fas fa-bars icon_menu"></i>
+      </label>
+      <nav>
+        <ul>
+          <li><a href="#" id="selected"></a></li>
+
+          <li><a routerLink="/auth/login">Ingresar</a></li>
+          
+            <a href="#" id="selected"></a>
+
+          <li>
+            <a routerLink="/auth/register">Registro</a>
+          </li>
+          <li>
+            
+            <a href="#">Portafolio</a>
+            <ul>
+              <li><a href="#">Diseño Web</a></li>
+              <li><a href="#">Mantenimiento</a></li>
+              <li><a href="#">Ordenadores</a></li>
+              <li><a href="#">Celulares</a></li>
+            </ul>
+          </li>
+
+          <li>
+            <a href="#">contactenos</a>
+            <ul>
+              <li><a href="#">Repuesto Original</a></li>
+              <li><a href="#">Repuesto Generico</a></li>
+              <li><a href="#">Accesorio</a></li>
+            </ul>
+          </li>
+
+          <li>
+            <a href="#">grupo de trabajo</a>
+            <ul>
+              <li><a href="#">Luis </a></li>
+              <li><a href="#">Jhon Vargas</a></li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </div>
+</header>
+
+
+
+
   <div class="container">
-    <a routerLink="/" class="logo">Logo</a>
+    
     <nav>
       <ul>
         <li>
-          <a routerLink="/auth/login">Ingresar</a>
+         
         </li>
         <li>
-          <a routerLink="/auth/register">Registro</a>
+       
         </li>
         <li>
           <a routerLink="/cart-page" class="cart-page">Cart <span>9</span></a>
@@ -15,4 +76,4 @@
       </ul>
     </nav>
   </div>
-</header>
+

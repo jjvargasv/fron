@@ -78,7 +78,7 @@ export class NewProductComponent implements OnInit {
     reader.readAsDataURL( file );
   }
 
-  createProduct() {
+  /* createProduct() {
     console.group( 'productForm' );
     console.log( this.productForm.value );
     console.log( this.productForm.valid );
@@ -89,12 +89,11 @@ export class NewProductComponent implements OnInit {
         console.log( response );
       });
 
-    this.productForm.reset();
-
-    setTimeout( () => {
-      this.router.navigate( [ 'dashboard', 'products' ] );
-    }, 1000 );
+    this.productForm.reset(); 
   }
+ */
+  
+ 
 
   create2Product() {
     console.log( this.productForm.value )

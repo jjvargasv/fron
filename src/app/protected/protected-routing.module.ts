@@ -10,6 +10,8 @@ import { NewProductComponent } from './pages/products/new-product/new-product.co
 import { UpdateProductComponent } from './pages/products/update-product/update-product.component';
 import { CategoriesComponent } from './pages/categories/categories.component';
 
+import { ResenasComponent } from './pages/resenas/resenas.component';
+
 const routes: Routes = [
   {
     path: '',
@@ -34,6 +36,11 @@ const routes: Routes = [
       {
         path: 'categories',
         component: CategoriesComponent
+      },
+      
+      {
+        path: 'resenas',
+        component: ResenasComponent
       },
       {
         path: '**',
