@@ -174,4 +174,40 @@ li a img {
   font-weight: 30;
 }
 
+/* Clients */
+
+.cards2{
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.cards2 .card2{
+  background: #4d0686;
+  display: flex;
+  width: 46%;
+  height: 200px;
+  align-items: center;
+  justify-content: space-evenly;
+  border-radius: 5px;
+  box-shadow: 0 0 6px 0 rgba(0, 0, 0, 0.6);
+}
+
+.cards2 .card2 img{
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  border: 3px solid #faf7f7;
+  border-radius: 50%;
+  display: block;
+}
+
+.cards2 .card2 > .contenido-texto-card2{
+  width: 60%;
+  color: #0a0909;
+}
+
+.cards2 .card2 > .contenido-texto-card2 p{
+  font-weight: 300;
+  padding-top: 5px;
+}
 

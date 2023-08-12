@@ -60,27 +60,27 @@
 <!-- ---------------- -->
 
 <link rel="stylesheet" href="home.component.css">
-
+<section class="clientes contenedor">
 <ng-container *ngIf="resenas && resenas.length > 0 ; then resenasList; else noResenas">
 </ng-container>
 
 <ng-template #resenasList>
 
-  <div class="cards">
+  <div class="cards2">
 
-    <div class="card" *ngFor="let resena of resenas">
-      <div class="card-image">
-         
+    <div class="card2" *ngFor="let resena of resenas">
+      <div class="">
+        <img src="/src/imagenes/face1.jpg" alt="">
       </div>
-      <div class="content">
-        <div class="card-title">
+      <div class="content ">
+        <div class="contenido-texto-card2">
         
           {{ resena.name }}
         </div>
         <span class="favorite">
           ❤
         </span>
-        <div class="card-body">
+        <div class="contenido-texto-card2">
           
           {{ resena.description }}
         </div>
@@ -93,3 +93,4 @@
 <ng-template #noResenas>
   <h3>La tienda no posee reseñas</h3>
 </ng-template>
+</section>
