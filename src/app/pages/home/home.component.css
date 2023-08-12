@@ -1,99 +1,4 @@
-/* ul {
-  align-items: flex-start;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: flex-start;
-  list-style: none;
-  padding: 0;
-}
 
-ul li {
-  max-width: 50%;
-  width: 100%;
-}
-
-@media screen and ( min-width: 768px ) {
-  ul li {
-    max-width: 33.3%;
-    width: 100%;
-  }
-}
-
-@media screen and ( min-width: 1200px ) {
-  ul li {
-    max-width: 25%;
-    width: 100%;
-  }
-}
-
-@media screen and ( min-width: 1400px ) {
-  ul li {
-    max-width: 16.6%;
-    width: 100%;
-  }
-}
-
-
-li a {
-  border-radius: 0.5rem;
-  border: 1px solid whitesmoke;
-  color: rgb(236, 68, 68);
-  display: flex;
-  flex-direction: column;
-  gap: .4rem;
-  height: auto;
-  margin: 0.5rem;
-  overflow: hidden;
-  text-decoration: none;
-}
-li a:hover {
-  cursor: pointer;
-  opacity: .7;
-}
-
-li a img {
-  object-fit: cover;
-}
-
-.content {
-  margin-top: .3rem;
-  padding: 0 1rem;
-  position: relative;
-}
-
-.name {
-  font-size: 1.2rem;
-  font-weight: 500;
-}
-
-.favorite {
-  position: absolute;
-  top: .5rem;
-  right: 1rem;
-  font-size: 1.2rem;
-}
-.favorite.not {
-  color: gray;
-}
-.description {
-  margin-bottom: .2rem;
-}
-
-.product-item-footer {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-}
-
-.footer {
-  color: #414141;
-  display: flex;
-  font-size: 1.3rem;
-  font-weight: 500;
-  justify-content: space-between;
-  padding: 0 1rem 0.5rem 1rem
-}
- */
 
 /* ---------------------------- */
 
@@ -126,16 +31,38 @@ li a img {
   .card {
     width: 48%;
   }
+  /* Clientes */
+
+
+.cards2 .card2{
+  width: 48%;
+}
+
 }
 @media screen and (min-width: 768px) {
   .card {
     width: 33%;
   }
+  /* Clientes */
+
+
+.cards2 .card2{
+  width: 33%;
+}
+
 }
 @media screen and (min-width: 992px) {
   .card {
     width: 25%;
   }
+   /* Clientes */
+
+
+.cards2 .card2{
+    width: 25%;
+}
+
+
 }
 
 .card:hover {
@@ -179,9 +106,17 @@ li a img {
 .cards2{
   display: flex;
   justify-content: space-evenly;
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 1.5rem;
+  margin-top: 2rem;
 }
 
 .cards2 .card2{
+  
   background: #4d0686;
   display: flex;
   width: 46%;
@@ -192,11 +127,11 @@ li a img {
   box-shadow: 0 0 6px 0 rgba(0, 0, 0, 0.6);
 }
 
-.cards2 .card2 img{
+.cards2 .card2-imge{
   width: 100px;
   height: 100px;
   object-fit: cover;
-  border: 3px solid #faf7f7;
+  border: 3px solid #db3434;
   border-radius: 50%;
   display: block;
 }
