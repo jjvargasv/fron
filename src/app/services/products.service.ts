@@ -138,4 +138,14 @@ export class ProductsService {
     );
   }
 
+  getProductByCategory( category: string ) {
+    return this.http.get<ProductResponse>(
+      `${ this.BASE_URL }/products/categoria/${ category }`,   // URL del BackEnd al que debemos hacer la peticion
+      { headers: this.headers }                         // Cabeceras con información requerida
+    ).pipe(
+      tap( ( console.log ) ),
+      map( response => response.productos )
+    );
+  }
+
 }

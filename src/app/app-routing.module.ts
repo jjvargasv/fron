@@ -1,12 +1,32 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './pages/home/home.component';
+import { AccesoriosComponent } from './components/partials/accesorios/accesorios.component';
+import { ServiciosComponent } from './components/servicios/servicios.component';
+import { RepuestosComponent } from './components/repuestos/repuestos.component';
+import { ParatiComponent } from './components/parati/parati.component';
 
 const routes: Routes = [
   /** Define la ruta de los dos modulos usando carga perezosa */
   {
     path: '',
     component: HomeComponent,
+  },
+  {
+    path: 'accesorios',
+    component: AccesoriosComponent,
+  },
+  {
+    path: 'servicios',
+    component: ServiciosComponent,
+  },
+  {
+    path: 'repuestos',
+    component: RepuestosComponent,
+  },
+  {
+    path: 'parati',
+    component: ParatiComponent,
   },
   {
     path: 'auth',

@@ -2,7 +2,7 @@
 <!--  ------------------ -->
 
 <link rel="stylesheet" href="home.component.css">
-
+<app-sobre-nosotros></app-sobre-nosotros>
 <ng-container *ngIf="products && products.products.length > 0 && products.products; then productList; else noProducts">
 </ng-container>
 
@@ -70,7 +70,7 @@
 
     <div class="card2" *ngFor="let resena of resenas">
       <div class="">
-        <img class="card2-imge" src="./img/face1.jpg" alt="">
+        <img class="card2-imge" src="assets/imagenes/face1.jpg" alt="">
       </div>
       <div class="content ">
         <div class="contenido-texto-card2">
