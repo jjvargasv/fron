@@ -1,13 +1,13 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { HttpClientModule } from '@angular/common/http'
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './pages/home/home.component';
 import { HeaderComponent } from './components/partials/header/header.component';
 import { FooterComponent } from './components/partials/footer/footer.component';
-import { AccesoriosComponent } from './components/partials/accesorios/accesorios.component';
+import { AccesoriosComponent } from './components/accesorios/accesorios.component';
 import { ServiciosComponent } from './components/servicios/servicios.component';
 import { RepuestosComponent } from './components/repuestos/repuestos.component';
 import { ParatiComponent } from './components/parati/parati.component';
@@ -24,15 +24,9 @@ import { SobreNosotrosComponent } from './components/sobre-nosotros/sobre-nosotr
     RepuestosComponent,
     ParatiComponent,
     SobreNosotrosComponent,
-    
-    
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    HttpClientModule
-  ],
+  imports: [BrowserModule, AppRoutingModule, HttpClientModule],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

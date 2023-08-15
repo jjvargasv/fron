@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './pages/home/home.component';
-import { AccesoriosComponent } from './components/partials/accesorios/accesorios.component';
+import { AccesoriosComponent } from './components/accesorios/accesorios.component';
 import { ServiciosComponent } from './components/servicios/servicios.component';
 import { RepuestosComponent } from './components/repuestos/repuestos.component';
 import { ParatiComponent } from './components/parati/parati.component';
@@ -30,22 +30,24 @@ const routes: Routes = [
   },
   {
     path: 'auth',
-    loadChildren: () => import( './auth/auth.module' )
-      .then( module => module.AuthModule )
+    loadChildren: () =>
+      import('./auth/auth.module').then((module) => module.AuthModule),
   },
   {
     path: 'dashboard',
-    loadChildren: () => import( './protected/protected.module' )
-      .then( module => module.ProtectedModule )
+    loadChildren: () =>
+      import('./protected/protected.module').then(
+        (module) => module.ProtectedModule
+      ),
   },
   {
     path: '**',
-    redirectTo: 'auth'
-  }
+    redirectTo: 'auth',
+  },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

@@ -1,0 +1,33 @@
+<br>
+<br>
+<br>
+<br>
+<br>
+<p>accesorios esto es prueba!</p>
+
+<ng-container *ngIf="products.products && products.products.length > 0 ; then productsService; else noProducts">
+</ng-container>
+
+<ng-template #productsService>
+    <div class="cards">
+
+        <div class="card" *ngFor="let product of products.products">
+            <div class="card">
+                <div class="upper-part">
+                  <div class="upper-part-face"> <img [src]="product.urlImage" [alt]="product.name" /></div>
+                  <div class="upper-part-back">{{ product.description }}</div>
+                </div>
+                <div class="lower-part">
+                  <div class="lower-part-face">{{ product.name }}</div>
+                  <div class="lower-part-back"><span>{{ product.price | currency }}</span></div>
+                </div>
+              </div>
+        </div>
+    </div>
+
+</ng-template>
+
+<ng-template #noProducts>
+    <h3>La tienda no posee productos</h3>
+</ng-template>
+
