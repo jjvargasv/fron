@@ -62,7 +62,7 @@
   }
   
   input[type="submit"] {
-    background-color: #007bff;
+    background-color: #8d2910;
     border: none;
     border-radius: 5px;
     color: #fff;
@@ -73,11 +73,11 @@
   }
   
   input[type="submit"]:hover {
-    background-color: #0069d9;
+    background-color: #972819;
   }
   
   .register-button {
-    background-color: #1281f0;
+    background-color: #a02813;
     border: none;
     border-radius: 5px;
     color: #ece2e2;

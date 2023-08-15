@@ -1,38 +1,53 @@
+<div class="category-card">
+  <div class="card-header">
+ <h2>Reseñas</h2>
+  <p>Registra nuevas reseñas. Diligencia cada uno de los campos según sean requeridos.</p>
+  <div class="">  
+    <img src="assets/imagenes/Tecno.png" alt="" class="logo" />
+  </div>
+</div>
+<div class="card-body">
 <form
   class="form form-product"
 [formGroup]="resenaForm"
 (ngSubmit)="createOrUpdateResena()"
   autocomplete="off"
 >
-  <h2>Reseñas</h2>
-  <p>Registra nuevas reseñas. Diligencia cada uno de los campos según sean requeridos.</p>
-  <div class="field">
-    <label for="name">Nombre*</label>
-    <input
-      id="name"
-      class="input-field"
-      type="text"
-      formControlName="name"
-      placeholder="Nombre del Producto"
-    />
+ 
+<div class="card-body">
+  <label for="name">Nombre de la reseña</label>
+  <input
+    id="name"
+    class="input-field"
+    type="text"
+    formControlName="name"
+    placeholder="Nombre del Producto"
+  />
+
   </div>
-  <div class="field">
+  <div class="card-body">
     <label for="description">Descripción</label>
     <textarea
       id="description"
       class="input-field"
       formControlName="description"
       placeholder="Descripción del Producto"
-      cols="20"
+      cols="30"
       rows="5"
     ></textarea>
   </div>
-  <div class="field">
+  <div class="card-body">
     <button
-      type="submit"
-      [disabled]="resenaForm.invalid"
-      >{{ this.selectedResena ? "Editar" : "Crear" }} resena</button>
-    
+    type="submit"
+    [disabled]="resenaForm.invalid"
+    >
+    {{ this.selectedResena ? "Editar" : "Crear" }} resena
+    </button>
   </div>
+  
+  
 </form>
 
+
+
+    

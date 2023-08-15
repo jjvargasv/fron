@@ -14,7 +14,7 @@
         <div class="card" *ngFor="let product of products.products">
             <div class="card">
                 <div class="upper-part">
-                  <div class="upper-part-face"> <img [src]="product.urlImage" [alt]="product.name" /></div>
+                  <div class="upper-part-face"> <img [src]="product.urlImage" [alt]="product.name"  class="image"/></div>
                   <div class="upper-part-back">{{ product.description }}</div>
                 </div>
                 <div class="lower-part">

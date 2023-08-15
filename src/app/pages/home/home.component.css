@@ -18,6 +18,9 @@
   transition: 0.4s;
 }
 
+.image {
+  width: 100%;
+}
 
 li a img {
   object-fit: cover;
