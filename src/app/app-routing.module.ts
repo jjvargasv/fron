@@ -5,12 +5,17 @@ import { AccesoriosComponent } from './components/accesorios/accesorios.componen
 import { ServiciosComponent } from './components/servicios/servicios.component';
 import { RepuestosComponent } from './components/repuestos/repuestos.component';
 import { ParatiComponent } from './components/parati/parati.component';
+import { BuscadorComponent } from './components/buscador/buscador.component';
 
 const routes: Routes = [
   /** Define la ruta de los dos modulos usando carga perezosa */
   {
     path: '',
     component: HomeComponent,
+  },
+  {
+    path: 'buscador',
+    component: BuscadorComponent,
   },
   {
     path: 'accesorios',

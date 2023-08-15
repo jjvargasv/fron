@@ -12,6 +12,7 @@ import { ServiciosComponent } from './components/servicios/servicios.component';
 import { RepuestosComponent } from './components/repuestos/repuestos.component';
 import { ParatiComponent } from './components/parati/parati.component';
 import { SobreNosotrosComponent } from './components/sobre-nosotros/sobre-nosotros.component';
+import { BuscadorComponent } from './components/buscador/buscador.component';
 
 @NgModule({
   declarations: [
@@ -24,6 +25,7 @@ import { SobreNosotrosComponent } from './components/sobre-nosotros/sobre-nosotr
     RepuestosComponent,
     ParatiComponent,
     SobreNosotrosComponent,
+    BuscadorComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule],
   providers: [],

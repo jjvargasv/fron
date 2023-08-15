@@ -143,4 +143,10 @@ export class ProductsService {
         map((response) => response.products)
       );
   }
+
+  getSearchTerm( term: string ) {
+    return this.http.get<Products>(
+      `${ this.BASE_URL }/products/buscador?${term}`  // URL del BackEnd al que debemos hacer la peticion
+    );
+  }
 }
