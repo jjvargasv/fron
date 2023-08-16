@@ -1,5 +1,6 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { map } from 'rxjs';
 import { environment } from 'src/environments/environment';
 
 @Injectable({
@@ -12,10 +13,10 @@ export class ServiciosService {
   constructor(private http: HttpClient) {}
 
   getAllServicios() {
-    const data = this.http.get(`${this.BASE_URL}/servicios`);
-    data.subscribe((res) => {
-      console.log(res);
-    });
+    const data = this.http.get<any>(`${this.BASE_URL}/servicios`).pipe(
+      map((res) => res['servicios'])
+    )
+    
     return data;
   }
 }

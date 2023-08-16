@@ -144,7 +144,7 @@ export class ProductsService {
       );
   }
 
-  getSearchTerm( term: string ) {
+  getBuscadorTerm( term: string ) {
     return this.http.get<Products>(
       `${ this.BASE_URL }/products/buscador?${term}`  // URL del BackEnd al que debemos hacer la peticion
     );

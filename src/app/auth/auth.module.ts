@@ -12,12 +12,15 @@ import { MainComponent } from './pages/main/main.component';
   declarations: [
     LoginComponent,
     RegisterComponent,
-    MainComponent
+    MainComponent,
+    
   ],
   imports: [
     CommonModule,
     AuthRoutingModule,
-    ReactiveFormsModule
-  ]
+    ReactiveFormsModule,
+  ],
+   
+
 })
 export class AuthModule { }
