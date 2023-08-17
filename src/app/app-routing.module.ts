@@ -39,6 +39,10 @@ const routes: Routes = [
     path: 'cart',
     component: CartComponent,
   },
+  /* {
+    path: 'contacto',
+    component: ContactoComponent,
+  }, */
   {
     path: 'auth',
     loadChildren: () =>

@@ -2,15 +2,15 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
 import { environment } from 'src/environments/environment';
-import { Category } from '../auth/interfaces/category.interface';
-import { Observable, map, tap } from 'rxjs';
-import { CategoryResponse } from '../protected/interfaces/category-response.interface';
+import { map, tap } from 'rxjs';
+import { Contacto } from '../protected/interfaces/contacto.interface';
+import { contactoResponse } from '../protected/interfaces/contacto-response.interface';
 
 
 @Injectable({
   providedIn: 'root'
 })
-export class CategoriesService {
+export class ContactoService {
     /** Atributos */
     BASE_URL: string = environment.baseUrl;
     token!: string;
@@ -25,44 +25,44 @@ export class CategoriesService {
     // console.log( this.token );
   }
 
-  getCategories() {
+  getContacto() {
 
-    return this.http.get<CategoryResponse>(
-      `${ this.BASE_URL }/categories`,   // URL del BackEnd al que debemos hacer la peticion
-      { headers: this.headers }                         // Cabeceras con información requerida
+    return this.http.get<contactoResponse>(
+      `${ this.BASE_URL }/contacto`   // URL del BackEnd al que debemos hacer la peticion
+                           // Cabeceras con información requerida
     )
     .pipe(
       tap( response => {
         console.log( response );
       }),
-      map( response => response[ 'categories' ] )
+      map( response => response[ 'contacto' ] )
     );
   }
 
   /** Realiza petición al endpoint del BackEnd que registra productos */
-  createCategory( category: Category ) {
+  createContacto( contactos : Contacto ) {
 
     return this.http.post(
-      `${ this.BASE_URL }/categories`,      // URL del BackEnd al que debemos hacer la peticion
-      category,                            // Objeto de producto a crear
+      `${ this.BASE_URL }/contacto`,      // URL del BackEnd al que debemos hacer la peticion
+      contactos,                            // Objeto de producto a crear
       { headers: this.headers }           // Cabeceras con información requerida
     );
   }
 
-  deleteCategory( categoryId: string | undefined ) {
+  deleteContacto( contactoId: string | undefined ) {
 
-    return this.http.delete<Category>(
-      `${ this.BASE_URL }/categories/${ categoryId }`,   // URL del BackEnd al que debemos hacer la peticion
+    return this.http.delete<Contacto>(
+      `${ this.BASE_URL }/contacto/${ contactoId }`,   // URL del BackEnd al que debemos hacer la peticion
       { headers: this.headers }                         // Cabeceras con información requerida
     );
   }
 
-  
-  updateCategory( category: any ) {
+ 
+  updateContacto( contacto: any ) {
 
     return this.http.patch(
-      `${ this.BASE_URL }/categories/${ category._id }`,   // URL del BackEnd al que debemos hacer la peticion
-      category,
+      `${ this.BASE_URL }/contacto/${ contacto._id }`,   // URL del BackEnd al que debemos hacer la peticion
+      contacto,
       { headers: this.headers }                         // Cabeceras con información requerida
     );
   }

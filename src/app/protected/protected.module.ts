@@ -14,7 +14,6 @@ import { ResenasComponent } from './pages/resenas/resenas.component';
 import { ListResenasComponent } from './pages/resenas/list-resenas/list-resenas.component';
 import { LisCategoriesComponent } from './pages/categories/lis-categories/lis-categories.component';
 
-
 @NgModule({
   declarations: [
     DashboardComponent,
@@ -23,15 +22,12 @@ import { LisCategoriesComponent } from './pages/categories/lis-categories/lis-ca
     NewProductComponent,
     UpdateProductComponent,
     CategoriesComponent,
-    
+
     ResenasComponent,
-          ListResenasComponent,
-          LisCategoriesComponent
+    ListResenasComponent,
+    LisCategoriesComponent,
+    
   ],
-  imports: [
-    CommonModule,
-    ProtectedRoutingModule,
-    ReactiveFormsModule
-  ]
+  imports: [CommonModule, ProtectedRoutingModule, ReactiveFormsModule],
 })
-export class ProtectedModule { }
+export class ProtectedModule {}

@@ -16,6 +16,7 @@ import { NewServiciosComponent } from './pages/servicios/new-servicios/new-servi
 import { ListResenasComponent } from './pages/resenas/list-resenas/list-resenas.component';
 import { LisCategoriesComponent } from './pages/categories/lis-categories/lis-categories.component';
 
+
 const routes: Routes = [
   {
     path: '',
@@ -23,53 +24,55 @@ const routes: Routes = [
     children: [
       {
         path: '',
-        component: DashboardComponent
+        component: DashboardComponent,
       },
       {
         path: 'products',
-        component: ProductsComponent
+        component: ProductsComponent,
       },
       {
         path: 'products/new',
-        component: NewProductComponent
+        component: NewProductComponent,
       },
       {
         path: 'products/update/:id',
-        component: UpdateProductComponent
+        component: UpdateProductComponent,
       },
       {
         path: 'categories',
-        component: CategoriesComponent
+        component: CategoriesComponent,
       },
-      
+
       {
         path: 'resenas',
-        component: ResenasComponent
+        component: ResenasComponent,
       },
 
       {
         path: 'list-resenas',
-        component: ListResenasComponent
+        component: ListResenasComponent,
       },
       {
         path: 'list-categories',
-        component: LisCategoriesComponent
+        component: LisCategoriesComponent,
       },
+      /* {
+        path: 'list-contacto',
+        component: ListContactoComponent,
+      }, */
 
-      { path: 'servicios/new',
-      component: NewServiciosComponent
-      },
+      { path: 'servicios/new', component: NewServiciosComponent },
       {
         path: '**',
-        redirectTo: ''
-      }
+        redirectTo: '',
+      },
     ],
-    canActivate: [ validateTokenGuard ],
-  }
+    canActivate: [validateTokenGuard],
+  },
 ];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class ProtectedRoutingModule { }
+export class ProtectedRoutingModule {}
