@@ -16,6 +16,7 @@ import { BuscadorComponent } from './components/buscador/buscador.component';
 import { NewServiciosComponent } from './components/servicios/new-servicios/new-servicios.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { CartComponent } from './components/cart/cart.component';
+import { ContactoComponent } from './components/contacto/contacto.component';
 
 @NgModule({
   declarations: [
@@ -31,6 +32,7 @@ import { CartComponent } from './components/cart/cart.component';
     BuscadorComponent,
     NewServiciosComponent,
     CartComponent,
+    ContactoComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule],
   providers: [],
