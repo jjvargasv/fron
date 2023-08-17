@@ -1,8 +1,8 @@
 export interface Contacto {
-  _id: string;
+  _id?: string;
   nombre: string;
   correo: string;
   celular: string;
-  mensaje: string;
+  mensaje?: string;
 
 }

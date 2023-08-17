@@ -25,7 +25,7 @@ export class ContactoService {
     // console.log( this.token );
   }
 
-  getContacto() {
+  getContactos() {
 
     return this.http.get<contactoResponse>(
       `${ this.BASE_URL }/contacto`   // URL del BackEnd al que debemos hacer la peticion
@@ -40,11 +40,11 @@ export class ContactoService {
   }
 
   /** Realiza petición al endpoint del BackEnd que registra productos */
-  createContacto( contactos : Contacto ) {
+  createContacto( contacto : Contacto ) {
 
     return this.http.post(
       `${ this.BASE_URL }/contacto`,      // URL del BackEnd al que debemos hacer la peticion
-      contactos,                            // Objeto de producto a crear
+      contacto,                            // Objeto de producto a crear
       { headers: this.headers }           // Cabeceras con información requerida
     );
   }

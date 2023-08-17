@@ -7,6 +7,7 @@ import { RepuestosComponent } from './components/repuestos/repuestos.component';
 import { ParatiComponent } from './components/parati/parati.component';
 import { BuscadorComponent } from './components/buscador/buscador.component';
 import { CartComponent } from './components/cart/cart.component';
+import { ContactoComponent } from './protected/pages/contacto/contacto.component';
 
 const routes: Routes = [
   /** Define la ruta de los dos modulos usando carga perezosa */

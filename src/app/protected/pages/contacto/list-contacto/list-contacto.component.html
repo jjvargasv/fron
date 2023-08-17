@@ -1,0 +1,55 @@
+<div class="category-card-list2">
+    <div class="card-header-list">
+     <!--  <h2>Lista de productos</h2> -->
+      <div class="card">  
+      <!--   <img src="assets/imagenes/Tecno.png" alt="" class="logo" /> -->
+      </div>
+    </div>
+    <ng-container
+      *ngIf="
+        contacto && contacto.length > 0;
+        then contactoList;
+        else noContacto
+      "
+    >
+    </ng-container>
+  
+    <ng-template #contactoList>
+      <div class="card-header-list">
+        <h3>Reseñas de productos</h3>
+      </div>
+  
+      <table class="table">
+        <thead>
+          <th>Nombre</th>
+          <th>celular</th>
+          <th>email</th>
+          <th colspan="2">mensajes</th>
+        </thead>
+        <tbody>
+          <tr *ngFor="let contacto of contacto">
+            <td>{{ contacto.nombre }}</td>
+            <td>{{ contacto.celular }}</td>
+            <td>{{ contacto.correo }}</td>
+            <td>{{ contacto.mensaje }}</td>
+            <td>
+              <button class="button" (click)="loadContacto(contacto)">
+                <span class="button-content">Edit </span>
+              </button>
+            </td>
+            <td>
+              <button class="button" (click)="deleteContacto(contacto._id)">
+                <span class="button-content">Delete </span>
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </ng-template>
+  
+    <ng-template #noContacto>
+      <h3>No has registdado contacto</h3>
+    </ng-template>
+  </div>
+  
+      

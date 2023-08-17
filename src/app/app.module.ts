@@ -18,6 +18,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { CartComponent } from './components/cart/cart.component';
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -31,7 +32,8 @@ import { CartComponent } from './components/cart/cart.component';
     SobreNosotrosComponent,
     BuscadorComponent,
     NewServiciosComponent,
-    CartComponent,
+    CartComponent
+   
    
   ],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule],

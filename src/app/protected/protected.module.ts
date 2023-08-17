@@ -13,6 +13,8 @@ import { CategoriesComponent } from './pages/categories/categories.component';
 import { ResenasComponent } from './pages/resenas/resenas.component';
 import { ListResenasComponent } from './pages/resenas/list-resenas/list-resenas.component';
 import { LisCategoriesComponent } from './pages/categories/lis-categories/lis-categories.component';
+import { ContactoComponent } from './pages/contacto/contacto.component';
+import { ListContactoComponent } from './pages/contacto/list-contacto/list-contacto.component';
 
 @NgModule({
   declarations: [
@@ -26,6 +28,8 @@ import { LisCategoriesComponent } from './pages/categories/lis-categories/lis-ca
     ResenasComponent,
     ListResenasComponent,
     LisCategoriesComponent,
+    ContactoComponent,
+    ListContactoComponent,
     
   ],
   imports: [CommonModule, ProtectedRoutingModule, ReactiveFormsModule],

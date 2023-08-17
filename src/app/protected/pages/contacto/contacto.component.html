@@ -1,0 +1,74 @@
+<div class="page">
+    <div class="category-card">
+        <div class="card-header">
+          <h2>Contactenos</h2>
+          <p>
+            Por Favores llenar el siguiente formulario y dejenos su mensaje y nosotros nos estaremos comunicando
+          </p>
+          <div class="">  
+            <img src="assets/imagenes/Tecno.png" alt="" class="logo" />
+          </div>
+        </div>
+        <div class="card-body">
+          <form
+            class="form-group"
+            [formGroup]="contactoForm"
+            (ngSubmit)="createOrUpdateContacto()"
+            autocomplete="off"
+          >
+            <div class="card-body">
+              <label for="nombre">Nombre*</label>
+              <input
+                id="nombre"
+                class="input-field"
+                type="text"
+                formControlName="nombre"
+                placeholder="Nombre "
+              />
+            </div>
+            <div class="card-body">
+                <label for="celular">celular*</label>
+                <input
+                id="celular"
+                class="input-field"
+                type="number"
+                formControlName="celular"
+                placeholder="Numero de celular"
+              />
+              </div>
+              <div class="card-body">
+                <label for="correo">correo*</label>
+                <input
+                  id="correo"
+                  class="input-field"
+                  type="text"
+                  formControlName="correo"
+                  placeholder="correo de contacto"
+                />
+              </div>
+            <div class="card-body">
+              <label for="mensaje">mensaje</label>
+              <textarea
+                id="mensaje"
+                class="input-field"
+                formControlName="mensaje"
+                placeholder="deje su mensaje"
+                cols="30"
+                rows="5"
+              ></textarea>
+            </div>
+            <div class="card-body">
+              <button
+                class="category-button"
+                type="submit"
+                [disabled]="contactoForm.invalid"
+              >
+                {{ this.selectedContacto ? "Editar" : "Crear" }} contacto
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+      
+      
+</div>

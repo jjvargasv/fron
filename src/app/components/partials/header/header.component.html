@@ -51,8 +51,8 @@
           <li *ngIf="!user.name">
             <a routerLink="cart">Compras</a>        
           </li>
-          <li *ngIf="!user.name">
-            <a routerLink="contacto">Contactenos</a>        
+          <li *ngIf="user.name">
+            <a routerLink="/dashboard/contacto">Contactenos</a>        
           </li>
           <li *ngIf="user.name">
             <button

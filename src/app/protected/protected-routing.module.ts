@@ -15,6 +15,8 @@ import { ResenasComponent } from './pages/resenas/resenas.component';
 import { NewServiciosComponent } from './pages/servicios/new-servicios/new-servicios.component';
 import { ListResenasComponent } from './pages/resenas/list-resenas/list-resenas.component';
 import { LisCategoriesComponent } from './pages/categories/lis-categories/lis-categories.component';
+import { ContactoComponent } from './pages/contacto/contacto.component';
+import { ListContactoComponent } from './pages/contacto/list-contacto/list-contacto.component';
 
 
 const routes: Routes = [
@@ -56,10 +58,14 @@ const routes: Routes = [
         path: 'list-categories',
         component: LisCategoriesComponent,
       },
-      /* {
+      {
         path: 'list-contacto',
         component: ListContactoComponent,
-      }, */
+      },
+      {
+        path: 'contacto',
+        component: ContactoComponent,
+      },
 
       { path: 'servicios/new', component: NewServiciosComponent },
       {
