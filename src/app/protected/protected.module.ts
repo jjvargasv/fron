@@ -11,6 +11,7 @@ import { UpdateProductComponent } from './pages/products/update-product/update-p
 import { CategoriesComponent } from './pages/categories/categories.component';
 
 import { ResenasComponent } from './pages/resenas/resenas.component';
+import { ListResenasComponent } from './pages/resenas/list-resenas/list-resenas.component';
 
 
 @NgModule({
@@ -22,7 +23,8 @@ import { ResenasComponent } from './pages/resenas/resenas.component';
     UpdateProductComponent,
     CategoriesComponent,
     
-    ResenasComponent
+    ResenasComponent,
+          ListResenasComponent
   ],
   imports: [
     CommonModule,

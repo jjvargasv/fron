@@ -1,0 +1,92 @@
+<div class="container">
+    <div class="page page-servicios">
+        <h2>Nuevo Servicio</h2>
+        <!-- <form
+  class="form form-product"
+  [formGroup]="serviceForm"
+  (ngSubmit)="create2servicio()"
+  autocomplete="off"
+>
+  <h2>Productos</h2>
+  <p>Registra nuevos productos. Diligencia cada uno de los campos según sean requeridos.</p>
+  <div class="field">
+    <label for="name">Nombre*</label>
+    <input
+      id="name"
+      class="input-field"
+      type="text"
+      formControlName="nombre"
+      placeholder="Nombre del Producto"
+    />
+  </div>
+  <div class="field">
+    <label for="price">Precio</label>
+    <input
+      id="price"
+      class="input-field"
+      type="number"
+      formControlName="precioServicio"
+      placeholder="Precio del Producto"
+    />
+  </div>
+  <div class="field">
+    <label for="quantity">Notas*</label>
+    <input
+      id="quantity"
+      class="input-field"
+      type="number"
+      formControlName="notas"
+      placeholder="Cantidad disponible del Producto"
+    />
+  </div>
+  <div
+    class="field"
+    *ngIf="preview && preview !== null"
+  >
+    <img [src]="preview" [alt]="serviceForm.value.name" />
+  </div>
+  <div class="field">
+    <label for="image">Cantidad*</label>
+    <input
+      id="image"
+      class="input-field"
+      type="file"
+      
+      (change)="updateFile($event)"
+    />
+  </div>
+  <div class="field">
+    <label for="category">Categoría</label>
+    <select
+      id="category"
+      class="input-field"
+      formControlName="categoryServicios"
+    >
+      <option value="">Seleccione...</option>
+      <option
+        *ngFor="let category of categories"
+        value="{{ category.name }}"
+      >{{ category.name }}</option>
+    </select>
+  </div>
+  <div class="field">
+    <label for="description">Descripción</label>
+    <textarea
+      id="description"
+      class="input-field"
+      formControlName="descripcion"
+      placeholder="Descripción del Producto"
+      cols="20"
+      rows="5"
+    ></textarea>
+  </div>
+  <div class="field">
+    <button
+      type="submit"
+      [disabled]="this.serviceForm.invalid"
+    >Crear Producto</button>
+  </div>
+</form> -->
+
+    </div>
+</div>

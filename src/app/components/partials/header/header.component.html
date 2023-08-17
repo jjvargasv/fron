@@ -15,30 +15,30 @@
       </label>
       <nav>
         <ul>
-          <li><a href="#" id="selected"></a></li>
+          <li ><a href="#" id="selected"></a></li>
 
-          <li><a routerLink="/auth/login">Ingresar</a></li>
+          <li *ngIf="!user.name" ><a routerLink="/auth/login">Ingresar</a></li>
           
             <a href="#" id="selected"></a>
 
-          <li>
+          <li *ngIf="!user.name">
             <a routerLink="/auth/register">Registro</a>
           </li>
           <li>
             
             <a href="#">Portafolio</a>
             <ul>
-              <li><a routerLink="/accesorios">Accesorios</a></li>
+              <li ><a routerLink="/accesorios">Accesorios</a></li>
               <li><a routerLink="/servicios">servicios</a></li>
               <li><a routerLink="/repuestos">Repuestos</a></li>
               <li><a routerLink="/parati">Para ti</a></li>
             </ul>
           </li>
 
-          <li>
-            <a href="#">contactenos</a>
+          <li *ngIf="user.name">
+            <a href="#">trabajo</a>
             <ul>
-              <li><a href="#">Repuesto Original</a></li>
+              <li><a routerLink="/dashboard/products">productos</a></li>
               <li><a href="#">Repuesto Generico</a></li>
               <li><a href="#">Accesorio</a></li>
             </ul>

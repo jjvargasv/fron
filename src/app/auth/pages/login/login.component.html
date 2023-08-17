@@ -1,42 +1,3 @@
-<!-- <form
-  class="form form-auth form-login"
-  [formGroup]="loginForm"
-  (ngSubmit)="login()"
-  autocomplete="off"
->
-  <h2>Login</h2>
-  <div class="field">
-    <label for="email">Email</label>
-    <input
-      id="email"
-      class="input-field"
-      type="email"
-      formControlName="email"
-      placeholder="Ingrese su Email"
-    />
-  </div>
-  <div class="field">
-    <label for="password">Password</label>
-    <input
-      id="password"
-      class="input-field"
-      type="password"
-      formControlName="password"
-      placeholder="Ingrese su Password"
-    />
-  </div>
-  <div class="field">
-    <button
-      type="submit"
-      [disabled]="this.loginForm.invalid"
-    >Ingresar</button>
-  </div>
-  <div class="field">
-    <p>¿No tienes cuenta?</p>
-    <p>Crea una <a routerLink="/auth/register">aquí</a></p>
-  </div>
-</form>
- -->
 
 <!-- ----------- nuevo------------ -->
 
@@ -44,62 +5,42 @@
 
 
 
-  <div class="login-card">
-    <div class="card-header">
-      <h2>Login</h2> 
-      <div class="card">  
-  <img src="assets/imagenes/Tecno.png" alt="" class="logo" />
-</div>
-    </div>
-    <div class="card-body">
-      <form
-          class="form-group"
-          [formGroup]="loginForm"
-          (ngSubmit)="login()"
-          autocomplete="off"
-      >
-     
-        <div class="form-group">
-          <label for="email">Email</label>
-          <input
-            id="email"
-            class="input-field"
-            type="email"
-            formControlName="email"
-            placeholder="Ingrese su Email"
-          />
-        </div>
-      
-
-        <div class="form-group">
-          <label for="password">Password</label>
-          <input
-            id="password"
-            class="input-field"
-            type="password"
-            formControlName="password"
-            placeholder="Ingrese su Password"
-          />
-        </div>
-
-        
-
-        <div class="form-group">
-          <button
-          class="login-button"
-            type="submit"
-            [disabled]="this.loginForm.invalid"
-          >Ingresar</button>
-        </div>
-      
-
-        <div class="form-group">
-          <p>¿No tienes cuenta?</p>
-          <p> Crea una  &nbsp;  <a routerLink="/auth/register">
-            cuenta aqui
-            </a>
-          </p>
-        </div>
-      </form>
+<div class="login-card">
+  <div class="card-header">
+    <h2>Login</h2>
+    <div class="card">
+      <img src="assets/imagenes/Tecno.png" alt="" class="logo" />
     </div>
   </div>
+  <div class="card-body">
+    <form class="form-group" [formGroup]="loginForm" (ngSubmit)="login()" autocomplete="off">
+
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input id="email" class="input-field" type="email" formControlName="email" placeholder="Ingrese su Email" />
+      </div>
+
+
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input id="password" class="input-field" type="password" formControlName="password"
+          placeholder="Ingrese su Password" />
+      </div>
+
+
+
+      <div class="form-group">
+        <button class="login-button" type="submit" [disabled]="this.loginForm.invalid">Ingresar</button>
+      </div>
+
+
+      <div class="form-group">
+        <p>¿No tienes cuenta?</p>
+        <p> Crea una &nbsp; <a routerLink="/auth/register">
+            cuenta aqui
+          </a>
+        </p>
+      </div>
+    </form>
+  </div>
+</div>

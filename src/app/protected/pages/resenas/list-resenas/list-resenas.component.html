@@ -1,0 +1,53 @@
+<div class="category-card-list2">
+    <div class="card-header-list">
+     <!--  <h2>Lista de productos</h2> -->
+      <div class="card">  
+      <!--   <img src="assets/imagenes/Tecno.png" alt="" class="logo" /> -->
+      </div>
+    </div>
+    <ng-container
+      *ngIf="
+        resenas && resenas.length > 0;
+        then resenasList;
+        else noResenas
+      "
+    >
+    </ng-container>
+  
+    <ng-template #resenasList>
+      <div class="card-header-list">
+        <h3>Reseñas de productos</h3>
+      </div>
+  
+      <table class="table">
+        <thead>
+          <th>Nombre</th>
+          <th>Description</th>
+          <th colspan="2">Acciones</th>
+        </thead>
+        <tbody>
+          <tr *ngFor="let resenas of resenas">
+            <td>{{ resenas.name }}</td>
+            <td>{{ resenas.description }}</td>
+            <td>
+              <button class="button" (click)="loadResena(resenas)">
+                <span class="button-content">Edit </span>
+              </button>
+            </td>
+            <td>
+              <button class="button" (click)="deleteResena(resenas._id)">
+                <span class="button-content">Delete </span>
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </ng-template>
+  
+    <ng-template #noResenas>
+      <h3>No has registdado categorias</h3>
+    </ng-template>
+  </div>
+  
+      
+  

@@ -12,6 +12,9 @@ import { CategoriesComponent } from './pages/categories/categories.component';
 
 import { ResenasComponent } from './pages/resenas/resenas.component';
 
+import { NewServiciosComponent } from './pages/servicios/new-servicios/new-servicios.component';
+import { ListResenasComponent } from './pages/resenas/list-resenas/list-resenas.component';
+
 const routes: Routes = [
   {
     path: '',
@@ -41,6 +44,15 @@ const routes: Routes = [
       {
         path: 'resenas',
         component: ResenasComponent
+      },
+
+      {
+        path: 'list-resenas',
+        component: ListResenasComponent
+      },
+
+      { path: 'servicios/new',
+      component: NewServiciosComponent
       },
       {
         path: '**',

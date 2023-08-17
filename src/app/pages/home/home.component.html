@@ -39,7 +39,7 @@
       </div>
       <div class="footer">
         <span>{{ product.price | currency }}</span>
-        <button type="button" (click)="addToCart()">Agregar a carrito</button>
+        <button type="button" (click)="addToCart(product)">Agregar a carrito</button>
       </div>
 
 
@@ -65,27 +65,20 @@
 
   <ng-template #resenasList>
 
-    <div class="cards2">
-
+    <div class="cards">
       <div class="card2" *ngFor="let resena of resenas">
-        <div class="">
-          <img class="card2-imge" src="assets/imagenes/face1.jpg" alt="">
-        </div>
-        <div class="content ">
-          <div class="contenido-texto-card2">
-
-            {{ resena.name }}
+        <div class="img2"><img src="" alt=""></div>
+        <div class="textBox2">
+          <div class="textContent2">
+            <p class="h1">{{ resena.name }}</p>
           </div>
-          <span class="favorite">
-            ❤
-          </span>
-          <div class="contenido-texto-card2">
-
-            {{ resena.description }}
+          <p class="p">{{ resena.description }}</p>
+          <div>
           </div>
         </div>
       </div>
     </div>
+
 
   </ng-template>
 
