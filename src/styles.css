@@ -26,15 +26,10 @@
   background-image: url(assets/imagenes/5026563.jpg);
  }
 
- .* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  color: black;
- }
 
 
 .page {
-  margin: 6rem auto;
-  color: blue;
+  margin: 5rem auto;
+
+  z-index: -1;
 }

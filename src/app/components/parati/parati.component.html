@@ -1,51 +1,24 @@
+<div class="page">
 <ng-container *ngIf="products.products && products.products.length > 0 ; then productsService; else noProducts">
 </ng-container>
-
 <ng-template #productsService>
-    <div class="cards">
-
+    <div class="cards ">
         <div class="card" *ngFor="let product of products.products">
-            <div class="card-image">
-
-                <a routerLink="/products/{{ product._id }}">
-                    <img [src]="product.urlImage" [alt]="product.name" />
-                </a>
-
-
-            </div>
-            <div class="content">
-                <div class="card-title">
-
-                    {{ product.name }}
+            <div class="card">
+                <div class="upper-part">
+                  <div class="upper-part-face"> <img [src]="product.urlImage" [alt]="product.name"  class="image"/></div>
+                  <div class="upper-part-back">{{ product.description }}</div>
                 </div>
-                <span class="favorite">
-                    ❤
-                </span>
-                <div class="card-body">
-
-                    {{ product.description }}
+                <div class="lower-part">
+                  <div class="lower-part-face">{{ product.name }}</div>
+                  <div class="lower-part-back"><span>{{ product.price | currency }}</span></div>
                 </div>
-                <div class="product-item-footer">
-                    <div class="ranking">
-
-                        {{ product.ranking }}
-                    </div>
-                </div>
-            </div>
-            <div class="footer">
-                <span>{{ product.price | currency }}</span>
-                <!-- <button type="button" (click)="addToCart()">Agregar a carrito</button>  -->
-            </div>
-
-
-
-
+              </div>
         </div>
     </div>
-
-
 </ng-template>
-
 <ng-template #noProducts>
     <h3>La tienda no posee productos</h3>
 </ng-template>
+
+</div>

@@ -12,6 +12,7 @@ import { CategoriesComponent } from './pages/categories/categories.component';
 
 import { ResenasComponent } from './pages/resenas/resenas.component';
 import { ListResenasComponent } from './pages/resenas/list-resenas/list-resenas.component';
+import { LisCategoriesComponent } from './pages/categories/lis-categories/lis-categories.component';
 
 
 @NgModule({
@@ -24,7 +25,8 @@ import { ListResenasComponent } from './pages/resenas/list-resenas/list-resenas.
     CategoriesComponent,
     
     ResenasComponent,
-          ListResenasComponent
+          ListResenasComponent,
+          LisCategoriesComponent
   ],
   imports: [
     CommonModule,

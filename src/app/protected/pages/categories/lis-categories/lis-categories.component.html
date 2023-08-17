@@ -1,0 +1,52 @@
+<div class="page">
+<div class="category-card-list">
+    <div class="card-header-list">
+     <!--  <h2>Lista de productos</h2> -->
+      <div class="card">  
+      <!--   <img src="assets/imagenes/Tecno.png" alt="" class="logo" /> -->
+      </div>
+    </div>
+    <ng-container
+      *ngIf="
+        categories && categories.length > 0;
+        then categoryList;
+        else noCategories
+      "
+    >
+    </ng-container>
+  
+    <ng-template #categoryList>
+      <div class="card-header-list">
+        <h3>Categoria de productos</h3>
+      </div>
+  
+      <table class="table">
+        <thead>
+          <th>Nombre</th>
+          <th>Description</th>
+          <th colspan="2">Acciones</th>
+        </thead>
+        <tbody>
+          <tr *ngFor="let category of categories">
+            <td>{{ category.name }}</td>
+            <td>{{ category.description }}</td>
+            <td>
+              <button class="button" (click)="loadCategory(category)">
+                <span class="button-content">Edit </span>
+              </button>
+            </td>
+            <td>
+              <button class="button" (click)="deleteCategory(category._id)">
+                <span class="button-content">Delete </span>
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </ng-template>
+  
+    <ng-template #noCategories>
+      <h3>No has registdado categorias</h3>
+    </ng-template>
+  </div>
+</div>

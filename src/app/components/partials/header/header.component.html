@@ -38,21 +38,24 @@
           <li *ngIf="user.name">
             <a href="#">trabajo</a>
             <ul>
-              <li><a routerLink="/dashboard/products">productos</a></li>
-              <li><a href="#">Repuesto Generico</a></li>
-              <li><a href="#">Accesorio</a></li>
+              <li><a routerLink="/dashboard/products">Products</a></li>
+              <li><a routerLink="/dashboard/products/new">New Product</a></li>
+              <li><a routerLink="/dashboard/categories">Categories</a></li>
+               <li><a routerLink="/dashboard/resenas">resenas</a></li>
+               <li><a routerLink="/dashboard/servicios/new">Nuevo Servicio</a></li>
+               <li><a routerLink="/dashboard/list-resenas">lista de reseñas</a></li>
+               <li><a routerLink="/dashboard/list-categories">lista de categorias</a></li>
             </ul>
           </li>
 
-          <li>
-            <a href="#">grupo de trabajo</a>
-            <ul>
-              <li><a href="#">Luis </a></li>
-              <li><a href="#">Jhon Vargas</a></li>
-            </ul>          
+          <li *ngIf="!user.name">
+            <a routerLink="cart">Compras</a>        
           </li>
-          <li>
-            <app-buscador></app-buscador>
+          <li *ngIf="user.name">
+            <button
+            type="button"
+            (click)="logout()"
+          >Salir</button>
           </li>
         </ul>
       </nav>
