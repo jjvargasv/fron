@@ -26,6 +26,17 @@
   background-image: url(assets/imagenes/5026563.jpg);
  }
 
+ .recuadro {
+  width: 300px; /* Ancho del recuadro */
+  height: 200px; /* Altura del recuadro */
+  background-image: url(assets/imagenes/Tecno.png); /* Ruta de la imagen */
+  background-size: cover; /* Ajusta el tamaño de la imagen para cubrir todo el recuadro */
+  background-position: center; /* Posición de la imagen dentro del recuadro */
+  border: 2px solid black; /* Borde del recuadro */
+  border-radius: 10px; /* Borde redondeado del recuadro */
+}
+
+
 
 
 .page {

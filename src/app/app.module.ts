@@ -14,8 +14,9 @@ import { ParatiComponent } from './components/parati/parati.component';
 import { SobreNosotrosComponent } from './components/sobre-nosotros/sobre-nosotros.component';
 import { BuscadorComponent } from './components/buscador/buscador.component';
 import { NewServiciosComponent } from './components/servicios/new-servicios/new-servicios.component';
-import { ReactiveFormsModule } from '@angular/forms';
 import { CartComponent } from './components/cart/cart.component';
+import { ContactComponent } from './pages/contact/contact.component';
+
 
 
 
@@ -32,7 +33,9 @@ import { CartComponent } from './components/cart/cart.component';
     SobreNosotrosComponent,
     BuscadorComponent,
     NewServiciosComponent,
-    CartComponent
+    CartComponent,
+    ContactComponent,
+    
    
    
   ],

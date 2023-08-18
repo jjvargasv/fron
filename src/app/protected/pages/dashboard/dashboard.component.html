@@ -1,9 +1,16 @@
-<h2>Dashboard</h2>
-<p>Solo se puede acceder si se está autenticado.</p>
+<div class="page">
+  <div class="card">
+    <div class="card-border-top">
+    </div>
+    <div class="recuadro img">
+      
+    </div>
+    <span>{{ user.name }}</span>
+    <p class="job">Bienvenido ahora puedes hacer sus cambios en la paguina</p>
+    <button (click)="logout()">Salir</button>
 
-<h3>User info</h3>
-<pre>{{ user | json }}</pre>
+  </div>
 
-<button
-  (click)="logout()"
->Salir</button>
+
+
+</div>

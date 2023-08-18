@@ -1,20 +1,20 @@
 import { Component, OnInit } from '@angular/core';
-import { Contacto } from '../../interfaces/contacto.interface';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Contacto } from 'src/app/protected/interfaces/contacto.interface';
 import { ContactoService } from 'src/app/services/contactos.service';
 
 @Component({
-  selector: 'app-contacto',
-  templateUrl: './contacto.component.html',
-  styleUrls: ['./contacto.component.css']
+  selector: 'app-contact',
+  templateUrl: './contact.component.html',
+  styleUrls: ['./contact.component.css']
 })
-export class ContactoComponent implements OnInit {
+export class ContactComponent implements OnInit {
   contacto! : Array<Contacto>;    // categories! : Category[];
   selectedContacto: Contacto | null = null;
   selectedContactoId!: string;
 
   // Procuramos usar los mismos nombres que espera nuestra API en las propiedades que agrupamos en nuestro FormBuilder Group
-  contactoForm: FormGroup = this.fb.group({
+  contactForm: FormGroup = this.fb.group({
     nombre: [
       '',   // Valor por defecto
       [
@@ -64,7 +64,7 @@ export class ContactoComponent implements OnInit {
   loadContactos( contacto: Contacto ) {
     this.selectedContacto = contacto;
 
-    this.contactoForm.patchValue({
+    this.contactForm.patchValue({
       nombre: contacto.nombre,
       celular: contacto.celular,
       correo: contacto.correo,
@@ -82,15 +82,15 @@ export class ContactoComponent implements OnInit {
 
   createContacto() {
     console.group( 'contactoForm' );
-    console.log( this.contactoForm.value );
-    console.log( this.contactoForm.valid );
+    console.log( this.contactForm.value );
+    console.log( this.contactForm.valid );
     console.groupEnd();
 
-    this.contactoService.createContacto( this.contactoForm.value )
+    this.contactoService.createContacto( this.contactForm.value )
       .subscribe( response => {
         console.log( response );
 
-        this.contactoForm.reset();
+        this.contactForm.reset();
         this.loadContacto();
       });
 
@@ -114,10 +114,10 @@ export class ContactoComponent implements OnInit {
     }
 
     // Actualiza la categoría con los nuevos datos del formulario.
-    this.selectedContacto.nombre = this.contactoForm.get( 'nombre' )?.value;
-    this.selectedContacto.celular = this.contactoForm.get( 'celular' )?.value;
-    this.selectedContacto.correo = this.contactoForm.get( 'correo' )?.value;
-    this.selectedContacto.mensaje = this.contactoForm.get( 'mensaje' )?.value;
+    this.selectedContacto.nombre = this.contactForm.get( 'nombre' )?.value;
+    this.selectedContacto.celular = this.contactForm.get( 'celular' )?.value;
+    this.selectedContacto.correo = this.contactForm.get( 'correo' )?.value;
+    this.selectedContacto.mensaje = this.contactForm.get( 'mensaje' )?.value;
 
 
     const contacto = { ...this.selectedContacto };
@@ -131,7 +131,7 @@ export class ContactoComponent implements OnInit {
 
     // Restablece la categoría y el formulario seleccionados después de que la actualización sea exitosa.
     this.selectedContacto = null;
-    this.contactoForm.reset();
+    this.contactForm.reset();
     this.loadContacto();
   }
 

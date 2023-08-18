@@ -8,12 +8,17 @@ import { ParatiComponent } from './components/parati/parati.component';
 import { BuscadorComponent } from './components/buscador/buscador.component';
 import { CartComponent } from './components/cart/cart.component';
 import { ContactoComponent } from './protected/pages/contacto/contacto.component';
+import { ContactComponent } from './pages/contact/contact.component';
 
 const routes: Routes = [
   /** Define la ruta de los dos modulos usando carga perezosa */
   {
     path: '',
     component: HomeComponent,
+  },
+  {
+    path: 'contact',
+    component: ContactComponent,
   },
   {
     path: 'buscador',
@@ -40,10 +45,10 @@ const routes: Routes = [
     path: 'cart',
     component: CartComponent,
   },
-  /* {
+  {
     path: 'contacto',
     component: ContactoComponent,
-  }, */
+  },
   {
     path: 'auth',
     loadChildren: () =>

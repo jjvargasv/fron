@@ -19,9 +19,9 @@ export class ContactoService {
   constructor(
     private http: HttpClient
   ) {
-    const token = localStorage.getItem( 'token' );    // Obtiene el Token del LocalStorage
+    /* const token = localStorage.getItem( 'token' );    // Obtiene el Token del LocalStorage
     this.token = token ? token : '';                  // Verifica si existe el token en el LocalStorage
-    this.headers = new HttpHeaders().set( 'X-Token', `${ this.token }` );
+    this.headers = new HttpHeaders().set( 'X-Token', `${ this.token }` ); */
     // console.log( this.token );
   }
 
