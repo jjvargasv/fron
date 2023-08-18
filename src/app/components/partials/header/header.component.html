@@ -26,7 +26,7 @@
           </li>
           <li>
             
-            <a href="#">Portafolio</a>
+            <a >Portafolio</a>
             <ul>
               <li ><a routerLink="/accesorios">Accesorios</a></li>
               <li><a routerLink="/servicios">servicios</a></li>
@@ -36,7 +36,7 @@
           </li>
 
           <li *ngIf="user.name">
-            <a href="#">trabajo</a>
+            <a>trabajo</a>
             <ul>
               <li><a routerLink="/dashboard/products">Products</a></li>
               <li><a routerLink="/dashboard/products/new">New Product</a></li>
@@ -45,13 +45,14 @@
                <li><a routerLink="/dashboard/servicios/new">Nuevo Servicio</a></li>
                <li><a routerLink="/dashboard/list-resenas">lista de reseñas</a></li>
                <li><a routerLink="/dashboard/list-categories">lista de categorias</a></li>
+               <li><a routerLink="/dashboard/list-contacto">lista de contacto</a></li>
             </ul>
           </li>
 
           <li *ngIf="!user.name">
             <a routerLink="cart">Compras</a>        
           </li>
-          <li *ngIf="user.name">
+          <li *ngIf="!user.name">
             <a routerLink="/dashboard/contacto">Contactenos</a>        
           </li>
           <li *ngIf="user.name">
